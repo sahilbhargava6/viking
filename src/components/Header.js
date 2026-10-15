@@ -12,12 +12,12 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Explore European Brands", href: "/brands" },
+    { name: "European Brands", href: "/brands" },
     { name: "Trucks", href: "/parts?segment=trucks" },
     { name: "Buses", href: "/parts?segment=buses" },
-    { name: "Construction & Mining", href: "/parts?segment=mining" },
+    { name: "Mining", href: "/parts?segment=mining" },
     { name: "Marine", href: "/parts?segment=marine" },
-    { name: "Parts Catalogue", href: "/parts" },
+    { name: "Catalogue", href: "/parts" },
     { name: "Facilities", href: "/facilities" },
     { name: "Contact", href: "/contact" },
   ];
@@ -28,39 +28,39 @@ export default function Header() {
       <div
         style={{
           background: "var(--ink)",
-          color: "rgba(255,255,255,0.7)",
+          color: "rgba(255,255,255,0.75)",
           fontSize: "0.72rem",
-          letterSpacing: "0.08em",
-          padding: "0.3rem clamp(1rem, 3vw, 3rem)",
+          letterSpacing: "0.06em",
+          padding: "0 clamp(1rem, 2.5vw, 3rem)",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          borderBottom: "1px solid rgba(255,255,255,0.12)",
+          borderBottom: "1px solid rgba(255,255,255,0.14)",
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          height: "28px",
+          height: "30px",
           zIndex: 1001,
           fontFamily: "var(--font-jetbrains-mono)",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "0.9rem", flexWrap: "nowrap", overflow: "hidden" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", whiteSpace: "nowrap", overflow: "hidden" }}>
           <span>
-            <strong style={{ color: "var(--safety)" }}>FAST DISPATCH:</strong> Domestic 24h | International 7 Days
+            <strong style={{ color: "var(--safety)" }}>FAST DISPATCH:</strong> Domestic 24h & International 7 Days
           </span>
-          <span style={{ opacity: 0.3 }}>|</span>
+          <span style={{ opacity: 0.35 }}>|</span>
           <span style={{ color: "var(--term-green)", fontWeight: 700 }}>
-            ⚡ Dealer EPC Software & AI Support Active
+            ⚡ Dealer EPC & AI Support Active
           </span>
-          <span style={{ opacity: 0.3 }}>|</span>
+          <span style={{ opacity: 0.35 }}>|</span>
           <span style={{ opacity: 0.85 }}>Trucks • Buses • Mining • Marine</span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "1.2rem", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "1.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
           <a href="mailto:schumi.india@mail.com" style={{ color: "inherit", opacity: 0.85 }}>
             schumi.india@mail.com
           </a>
-          <span style={{ opacity: 0.3 }}>|</span>
+          <span style={{ opacity: 0.35 }}>|</span>
           <a href="tel:+919702666664" style={{ color: "var(--term-green)", fontWeight: 700 }}>
             +91 9702666664
           </a>
@@ -68,47 +68,36 @@ export default function Header() {
       </div>
 
       {/* Main Industrial Header */}
-      <header className="header" style={{ top: "28px" }}>
+      <header className="header" style={{ top: "30px" }}>
         <div className="header__inner">
+          {/* Logo & Brand Identity */}
           <div className="header__left">
             <Link href="/" className="header__logo" aria-label="Viking Tradelinks Home">
-              <div
-                style={{
-                  width: "36px",
-                  height: "36px",
-                  background: "#fff",
-                  border: "2px solid var(--safety)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden",
-                  padding: "2px",
-                  flexShrink: 0,
-                }}
-              >
+              <div className="header__logo-mark">
                 <img
                   src="/images/viking-logo.webp"
-                  alt="Viking Tradelinks Viking Group Logo"
+                  alt="Viking Tradelinks Logo"
                   style={{ width: "100%", height: "100%", objectFit: "contain" }}
                 />
               </div>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <span style={{ lineHeight: 1, letterSpacing: "0.04em", fontWeight: 700 }}>VIKING TRADELINKS</span>
-                <span style={{ fontSize: "0.62rem", color: "var(--safety)", letterSpacing: "0.12em", marginTop: "2px", fontWeight: 700 }}>
-                  VIKING GROUP • EST. 1969
+                <span style={{ lineHeight: 1.1, letterSpacing: "0.04em", fontWeight: 700, fontSize: "0.95rem" }}>
+                  VIKING TRADELINKS
+                </span>
+                <span style={{ fontSize: "0.62rem", color: "var(--safety)", letterSpacing: "0.14em", marginTop: "2px", fontWeight: 700 }}>
+                  EST. 1969 • VIKING GROUP
                 </span>
               </div>
             </Link>
-            <span className="header__sep"></span>
-            <span className="header__product">Est. 1969 • European Commercial Specialist</span>
           </div>
 
+          {/* Clean, Single-Line Navigation */}
           <nav className={`header__nav ${menuOpen ? "open" : ""}`} id="headerNav">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
-                  key={link.href}
+                  key={link.name}
                   href={link.href}
                   className={isActive ? "active" : ""}
                   onClick={() => setMenuOpen(false)}
@@ -119,33 +108,15 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="header__right" style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
+          {/* Right Action: Flawlessly Sized RFQ Basket & Burger Menu */}
+          <div className="header__right">
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="btn btn--primary btn--sm"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.45em 0.9em",
-                fontSize: "0.78rem",
-                letterSpacing: "0.05em",
-              }}
+              className="header__rfq-btn"
               title="Open Multi-Item RFQ Basket"
             >
               <span>📋 RFQ BASKET</span>
-              <span
-                style={{
-                  background: "#000",
-                  color: "#fff",
-                  padding: "0.1em 0.5em",
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  border: "1px solid #fff",
-                }}
-              >
-                {totalItems}
-              </span>
+              <span className="header__rfq-badge">{totalItems}</span>
             </button>
 
             <button
