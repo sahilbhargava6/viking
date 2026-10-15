@@ -13,8 +13,9 @@ import DownloadCatalogues from "@/components/DownloadCatalogues";
 import {
   BRANDS,
   CATEGORIES,
+  SECTORS,
   SMART_FEATURES,
-  VSTORES_BENEFITS,
+  VIKING_BENEFITS,
   LOGISTICS_SERVICES,
   TESTIMONIALS,
   LOCATIONS,
@@ -47,54 +48,65 @@ export default function Home() {
       >
         <div className="hero__grid hero__grid--dense" aria-hidden="true"></div>
         <div className="hero__label">
-          Welcome to V Stores & Services — Est. 1972
+          A VIKING GROUP COMPANY — EST. 1969
         </div>
+
+        {/* Company Name Big */}
         <h1 className="hero__title">
-          <span className="line">Global Automotive</span>
+          <span className="line">VIKING</span>
           <span className="line line--indent">
-            Solutions<span className="accent">.</span>
+            TRADELINKS<span className="accent">.</span>
           </span>
         </h1>
+
+        {/* Slogan Small */}
+        <div className="hero__slogan">
+          Global Automotive Solutions
+          <span className="hero__slogan-sub">
+            — Heavy European Specialist for Trucks, Buses, Construction & Mining, Marine
+          </span>
+        </div>
+
         <div className="hero__bottom">
-          <div style={{ background: "rgba(255, 255, 255, 0.88)", backdropFilter: "blur(8px)", padding: "1.2rem 1.6rem", border: "var(--border)", boxShadow: "var(--shadow-sm)", maxWidth: "600px" }}>
-            <p className="hero__desc" style={{ fontSize: "1rem", lineHeight: "1.8", opacity: 0.95, color: "#000" }}>
-              European truck specialist in <strong>MAN, Mercedes-Benz, Scania & VOLVO</strong> since 1972.
-              Supplying precision OEM replacement parts and certified dismantled components to keep your fleet in top condition.
+          <div style={{ background: "rgba(255, 255, 255, 0.92)", backdropFilter: "blur(8px)", padding: "1.4rem 1.8rem", border: "var(--border)", boxShadow: "var(--shadow-sm)", maxWidth: "620px" }}>
+            <p className="hero__desc" style={{ fontSize: "1.02rem", lineHeight: "1.8", opacity: 0.95, color: "#000" }}>
+              European commercial specialist in <strong>MAN, Mercedes-Benz, Scania & VOLVO</strong> since 1969.
+              Supplying precision OEM replacement parts and certified dismantled components backed by <strong>Dealer EPC Software & AI Support</strong>.
             </p>
             <div style={{ marginTop: "1.4rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <button className="btn btn--primary" onClick={() => setIsModalOpen(true)}>
                 Inquire Part Quote
               </button>
               <Link href="/parts" className="btn btn--ghost">
-                Explore Spare Parts (15,000+)
+                Explore European Parts (15,000+)
               </Link>
             </div>
           </div>
 
-          <div className="hero__stats" style={{ background: "rgba(255, 255, 255, 0.9)", backdropFilter: "blur(8px)", padding: "1.2rem 1.8rem", border: "var(--border)", boxShadow: "var(--shadow-sm)" }}>
+          <div className="hero__stats" style={{ background: "rgba(255, 255, 255, 0.92)", backdropFilter: "blur(8px)", padding: "1.4rem 2rem", border: "var(--border)", boxShadow: "var(--shadow-sm)" }}>
             <div>
               <div className="hero__stat-num">
-                50<span className="accent">+</span>
+                55<span className="accent">+</span>
               </div>
-              <div className="hero__stat-label">Years of Heritage (1972)</div>
+              <div className="hero__stat-label">Years of Heritage (1969)</div>
             </div>
             <div>
               <div className="hero__stat-num">
                 15K<span className="accent">+</span>
               </div>
-              <div className="hero__stat-label">Parts in Stock</div>
+              <div className="hero__stat-label">European Items in Stock</div>
             </div>
             <div>
               <div className="hero__stat-num">
                 24<span className="accent">H</span>
               </div>
-              <div className="hero__stat-label">Shipment within 24h</div>
+              <div className="hero__stat-label">Domestic Dispatch</div>
             </div>
             <div>
               <div className="hero__stat-num">
-                24<span className="accent">M</span>
+                7<span className="accent">D</span>
               </div>
-              <div className="hero__stat-label">New Parts Warranty</div>
+              <div className="hero__stat-label">International Delivery</div>
             </div>
           </div>
         </div>
@@ -103,7 +115,7 @@ export default function Home() {
       {/* ====== LIVE TELEMETRY STRIP ====== */}
       <TelemetryBar />
 
-      {/* ====== ABOUT US (WITH AUTHENTIC FLEET IMAGE) ====== */}
+      {/* ====== ABOUT US (VIKING GROUP SINCE 1969) ====== */}
       <section className="section" id="about">
         <div className="container">
           <div
@@ -127,57 +139,100 @@ export default function Home() {
               >
                 <img
                   src="/images/about-fleet.jpeg"
-                  alt="V Stores & Services European Commercial Truck Fleet"
+                  alt="Viking Tradelinks European Commercial Fleet"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
               <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem", flexWrap: "wrap" }}>
-                <span className="tag tag--filled">SINCE 1972</span>
-                <span className="tag tag--safety">24-MO NEW WARRANTY</span>
-                <span className="tag tag--blue">14-DAY USED TRIAL</span>
+                <span className="tag tag--filled">SINCE 1969</span>
+                <span className="tag tag--safety">DOMESTIC 24H / GLOBAL 7D</span>
+                <span className="tag tag--blue">DEALER EPC & AI SUPPORT</span>
               </div>
             </div>
 
             <div style={{ gridColumn: "span 6" }}>
-              <div className="section__eyebrow">// COMPANY PROFILE</div>
+              <div className="section__eyebrow">// A VIKING GROUP ENTERPRISE</div>
               <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", marginBottom: "1rem" }}>
-                About Us<span className="accent">.</span>
+                About Viking Tradelinks<span className="accent">.</span>
               </h2>
-              <p style={{ fontSize: "0.95rem", lineHeight: "1.8", opacity: "0.85", marginBottom: "1.5rem" }}>
-                If you&apos;re looking for quality Spare parts to keep your truck in top condition, you&apos;ve come to the
-                right place at <strong>V STORES</strong>. We understand the importance of reliable and durable parts for
-                your truck, whether you&apos;re an owner-operator or manage a multi-vehicle commercial fleet. Our extensive
-                selection of Spare parts offers everything you need for repairs, upgrades, and maintenance.
+              <p style={{ fontSize: "0.98rem", lineHeight: "1.8", opacity: "0.85", marginBottom: "1.5rem" }}>
+                If you&apos;re looking for high-end European commercial vehicle spare parts to keep your fleet in top condition, you&apos;ve come to the
+                right place at <strong>Viking Tradelinks</strong>. Established in <strong>1969</strong>, we understand the critical importance of reliable, durable parts for
+                heavy commercial operations — whether you manage interstate haulage trucks, luxury tourist coaches, high-load mining tippers, or marine propulsion engines.
               </p>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem", marginBottom: "2rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.88rem", fontWeight: 700 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.92rem", fontWeight: 700 }}>
                   <span style={{ color: "var(--safety)", fontSize: "1.2rem" }}>✓</span>
-                  <span>24 months warranty on all brand new parts</span>
+                  <span>Viking Group company with 55+ years of heritage since 1969</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.88rem", fontWeight: 700 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.92rem", fontWeight: 700 }}>
                   <span style={{ color: "var(--safety)", fontSize: "1.2rem" }}>✓</span>
-                  <span>Extremely competitive pricing across European OEM & alternative lines</span>
+                  <span>Domestic shipment within 24 hours | International delivery in 7 days</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.88rem", fontWeight: 700 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.92rem", fontWeight: 700 }}>
                   <span style={{ color: "var(--safety)", fontSize: "1.2rem" }}>✓</span>
-                  <span>Premium brand, highest quality standards (Bremskerl, Wabco, Sachs)</span>
+                  <span>Official dealer EPC software (Volvo IMPACT, MB EPC, Scania Multi, MAN Mantis) & AI support</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.88rem", fontWeight: 700 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.92rem", fontWeight: 700 }}>
                   <span style={{ color: "var(--safety)", fontSize: "1.2rem" }}>✓</span>
-                  <span>European truck specialist in MAN, Mercedes-Benz, Scania & VOLVO since 1972</span>
+                  <span>24 months warranty on brand new parts & tested dismantled components with fitment trial</span>
                 </div>
               </div>
 
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                 <Link href="/facilities" className="btn btn--primary btn--sm">
-                  View Our Facilities & Testing
+                  View Warehouses & Testing Lab
                 </Link>
                 <a href="tel:+919702666664" className="btn btn--ghost btn--sm">
                   Direct Line: +91 9702666664
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== OPERATIONAL SECTORS: TRUCK, BUS, MINING, MARINE ====== */}
+      <section className="section section--surface" id="sectors">
+        <div className="container">
+          <div className="section__header">
+            <div className="section__eyebrow">// APPLICATION DOMAINS</div>
+            <h2 className="section__title">
+              Operating Sectors<span className="accent">.</span>
+            </h2>
+            <p style={{ maxWidth: "680px", fontSize: "1rem", opacity: 0.75, marginTop: "0.5rem" }}>
+              Dedicated parts coverage engineered specifically for European heavy transport, public transit, quarry extraction, and marine powertrains.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+            {SECTORS.map((sector, idx) => (
+              <div key={sector.id} className="sector-card">
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+                    <span style={{ fontSize: "2rem" }}>{sector.icon}</span>
+                    <span className="tag tag--filled">SECTOR 0{idx + 1}</span>
+                  </div>
+                  <h3 style={{ fontSize: "1.3rem", marginBottom: "0.6rem", lineHeight: "1.2" }}>{sector.name}</h3>
+                  <p style={{ fontSize: "0.85rem", opacity: 0.75, lineHeight: "1.6", marginBottom: "1.2rem" }}>
+                    {sector.desc}
+                  </p>
+                  <div style={{ fontSize: "0.78rem", background: "var(--surface)", border: "var(--border-thin)", padding: "0.8rem", marginBottom: "1.2rem" }}>
+                    <strong style={{ display: "block", color: "var(--safety)", marginBottom: "0.2rem" }}>KEY PLATFORMS:</strong>
+                    {sector.keyModels}
+                  </div>
+                </div>
+
+                <Link
+                  href={`/parts?segment=${sector.id}`}
+                  className="btn btn--primary btn--sm"
+                  style={{ width: "100%" }}
+                >
+                  Explore {sector.shortName} Parts →
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -303,27 +358,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== BENEFITS OF V STORES ====== */}
+      {/* ====== BENEFITS OF VIKING TRADELINKS ====== */}
       <section className="section" id="benefits">
         <div className="container">
           <div className="section__header" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 3rem auto" }}>
             <div className="section__eyebrow" style={{ justifyContent: "center" }}>// CUSTOMER ADVANTAGES</div>
             <h2 className="section__title">
-              Benefits of V STORES<span className="accent">.</span>
+              Benefits of VIKING TRADELINKS<span className="accent">.</span>
             </h2>
-            <p style={{ fontSize: "0.95rem", opacity: 0.7 }}>
-              When you choose our Truck parts, you&apos;ll enjoy numerous operational benefits:
+            <p style={{ fontSize: "1rem", opacity: 0.75 }}>
+              A Viking Group enterprise since 1969. Supporting fleets with direct OEM sourcing, dealer EPC software, and rapid delivery:
             </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.2rem", marginBottom: "3rem" }}>
-            {VSTORES_BENEFITS.map((ben, idx) => (
+            {VIKING_BENEFITS.map((ben, idx) => (
               <div key={idx} className="part-card" style={{ padding: "1.5rem" }}>
                 <span className="tag tag--safety" style={{ alignSelf: "flex-start", marginBottom: "0.8rem" }}>
                   0{idx + 1}
                 </span>
-                <h4 style={{ fontSize: "1.15rem", marginBottom: "0.5rem" }}>{ben.title}</h4>
-                <p style={{ fontSize: "0.78rem", opacity: 0.75, lineHeight: "1.6" }}>{ben.desc}</p>
+                <h4 style={{ fontSize: "1.18rem", marginBottom: "0.5rem" }}>{ben.title}</h4>
+                <p style={{ fontSize: "0.82rem", opacity: 0.75, lineHeight: "1.6" }}>{ben.desc}</p>
               </div>
             ))}
           </div>
@@ -353,7 +408,7 @@ export default function Home() {
             Used Parts Alert<span className="accent">.</span>
           </h2>
           <p style={{ opacity: 0.8, fontSize: "0.95rem", lineHeight: "1.7", marginBottom: "2rem" }}>
-            We like to inform you about our stock and special offers! When a fresh dismantled European truck container
+            We like to inform you about our stock and special offers! When a fresh dismantled European commercial container
             arrives at our Khalapur yard, be the first to reserve transmissions, axles, and engines.
           </p>
 
@@ -425,14 +480,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== TRUCK BRANDS SHOWCASE ====== */}
+      {/* ====== RESPECETD BRANDS SHOWCASE (CLICKABLE - KNOW MORE) ====== */}
       <section className="section section--surface" id="brands">
         <div className="container">
           <div className="section__header">
             <div className="section__eyebrow">// Fleet Compatibility</div>
             <h2 className="section__title">
-              European Commercial<br />Vehicle Platforms
+              Respected European Brands<span className="accent">.</span>
             </h2>
+            <p style={{ maxWidth: "600px", fontSize: "0.95rem", opacity: 0.7, marginTop: "0.5rem" }}>
+              Click any brand below to learn more about platform series, factory EPC dealer software specs, or explore spare parts inventory.
+            </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
@@ -440,14 +498,39 @@ export default function Home() {
               <div key={brand.id} className="part-card" style={{ background: "var(--base)" }}>
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                    <span className="tag tag--filled" style={{ fontSize: "0.8rem", padding: "0.4em 0.8em" }}>
-                      {brand.icon}
-                    </span>
-                    <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "var(--safety)" }}>SPECIALIST FLEET</span>
+                    <Link
+                      href={brand.knowMoreUrl || `/brands#${brand.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <span className="tag tag--filled" style={{ fontSize: "0.85rem", padding: "0.4em 0.8em", cursor: "pointer" }}>
+                        {brand.icon}
+                      </span>
+                    </Link>
+                    <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--safety)" }}>SPECIALIST FLEET</span>
                   </div>
-                  <h3 style={{ fontSize: "1.4rem", marginBottom: "0.8rem" }}>{brand.name}</h3>
-                  <p style={{ fontSize: "0.82rem", opacity: 0.7, marginBottom: "1rem" }}>{brand.desc}</p>
-                  <div style={{ fontSize: "0.75rem", background: "var(--surface)", padding: "0.8rem", border: "var(--border-thin)", marginBottom: "1.2rem" }}>
+
+                  <Link href={brand.knowMoreUrl || `/brands#${brand.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    <h3 style={{ fontSize: "1.45rem", marginBottom: "0.6rem", transition: "color 0.15s ease" }}>
+                      {brand.name}
+                    </h3>
+                  </Link>
+
+                  <p style={{ fontSize: "0.85rem", opacity: 0.75, marginBottom: "1rem", lineHeight: "1.6" }}>
+                    {brand.desc}
+                  </p>
+
+                  {/* Sectors badges */}
+                  {brand.sectors && (
+                    <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1rem" }}>
+                      {brand.sectors.map((sec, sIdx) => (
+                        <span key={sIdx} className="tag tag--ghost" style={{ fontSize: "0.62rem" }}>
+                          {sec}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div style={{ fontSize: "0.78rem", background: "var(--surface)", padding: "0.8rem", border: "var(--border-thin)", marginBottom: "1.2rem" }}>
                     <strong style={{ display: "block", marginBottom: "0.4rem", textTransform: "uppercase" }}>Common Series:</strong>
                     {brand.series.map((s, idx) => (
                       <div key={idx} style={{ opacity: 0.85, padding: "0.15rem 0" }}>• {s}</div>
@@ -455,13 +538,22 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Link
-                  href={`/parts?brand=${brand.id}`}
-                  className="btn btn--primary btn--sm"
-                  style={{ width: "100%" }}
-                >
-                  Explore {brand.name} Parts →
-                </Link>
+                <div style={{ display: "flex", gap: "0.6rem", flexDirection: "column" }}>
+                  <Link
+                    href={brand.knowMoreUrl || `/brands#${brand.id}`}
+                    className="brand-card__know-more"
+                    style={{ textAlign: "center", justifyContent: "center" }}
+                  >
+                    Know More →
+                  </Link>
+                  <Link
+                    href={brand.partsUrl || `/parts?brand=${brand.id}`}
+                    className="btn btn--primary btn--sm"
+                    style={{ width: "100%" }}
+                  >
+                    Explore {brand.name} Parts →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

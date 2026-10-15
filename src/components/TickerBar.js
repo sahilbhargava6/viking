@@ -1,21 +1,24 @@
 export default function TickerBar() {
   const itemsForward = [
-    "EUROPEAN TRUCK SPECIALIST SINCE 1972",
+    "A VIKING GROUP COMPANY SINCE 1969",
+    "DOMESTIC SHIPMENT IN 24 HOURS",
+    "INTERNATIONAL SHIPMENT IN 7 DAYS",
+    "DEALER KNOWLEDGE, EPC SOFTWARE & AI SUPPORT",
+    "TRUCKS • BUSES • CONSTRUCTION & MINING • MARINE",
     "MAN • MERCEDES-BENZ • SCANIA • VOLVO",
     "BREMSKERL BRAKE TECHNOLOGY",
-    "24-HOUR WORLDWIDE DISPATCH",
     "24 MONTHS WARRANTY ON NEW PARTS",
-    "TESTED DISMANTLED ASSEMBLIES",
-    "KHALAPUR CENTRAL WAREHOUSE",
-    "ISTANBUL SOURCING HUB",
+    "TESTED DISMANTLED TRUCK & BUS ASSEMBLIES",
+    "KHALAPUR CENTRAL DEPOT & MUMBAI SHOWROOM",
   ];
 
   const itemsReverse = [
     "ZERO COMPROMISE COMMERCIAL ENDURANCE",
-    "15,000+ LINE ITEMS IN STOCK",
-    "HEAVY DUTY CALIPERS & AIR SPRINGS",
-    "TURBOCHARGERS & DRIVETRAIN ENGINES",
-    "PAN-INDIA EXPRESS LOGISTICS",
+    "15,000+ EUROPEAN LINE ITEMS IN STOCK",
+    "VOLVO B7R / B9R / B11R / 9400 / 9600 COACHES",
+    "ACTROS MP3 / MP4 • SCANIA V8 • MAN TGX",
+    "OFFICIAL DEALER EPC LOOKUP (IMPACT • EPC • MULTI • MANTIS)",
+    "PAN-INDIA EXPRESS & GLOBAL AIR/CONTAINER FREIGHT",
     "VIKING TRADELINKS",
   ];
 
@@ -32,7 +35,7 @@ export default function TickerBar() {
       </div>
       <div className="ticker ticker--reverse ticker--safety" aria-hidden="true">
         <div className="ticker__track">
-          {[...itemsReverse, ...itemsReverse, ...itemsReverse].map((item, idx) => (
+          {[...itemsReverse, ...itemsReverse].map((item, idx) => (
             <span key={idx} className="ticker__item">
               {item}
             </span>

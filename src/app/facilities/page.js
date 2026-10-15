@@ -12,12 +12,12 @@ export default function FacilitiesPage() {
             Facilities &<br />Logistics Network<span className="accent">.</span>
           </h1>
           <p style={{ maxWidth: "650px", fontSize: "1rem", opacity: 0.75, lineHeight: "1.8" }}>
-            Established in 1972, Viking Tradelinks (V Stores & Services) bridges premier European manufacturing with
-            heavy commercial logistics across India and global export corridors.
+            A proud Viking Group enterprise since 1969, Viking Tradelinks bridges premier European manufacturing with
+            heavy commercial logistics across India (domestic 24-hr dispatch) and global export corridors (7-day delivery).
           </p>
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
-            <span className="tag tag--filled">50+ YEARS EXPERIENCE</span>
-            <span className="tag tag--safety">ISTANBUL - MUMBAI CORRIDOR</span>
+            <span className="tag tag--filled">SINCE 1969 (55+ YEARS)</span>
+            <span className="tag tag--safety">DOMESTIC 24H • GLOBAL 7D</span>
             <span className="tag tag--ghost">15,000+ ITEMS IN KHALAPUR</span>
           </div>
         </div>

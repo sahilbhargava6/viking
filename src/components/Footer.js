@@ -16,44 +16,45 @@ export default function Footer() {
               Viking<br />Tradelinks<span className="accent">.</span>
             </h2>
             <p className="footer__brand-desc">
-              Global automotive solutions since 1972. Heavy European commercial truck spare parts specialist for MAN,
-              Mercedes-Benz, Scania & Volvo. Precision OEM alternatives and certified dismantled assemblies.
+              Global automotive solutions — A Viking Group Company Since 1969. Heavy European commercial spare parts
+              specialist for Trucks, Buses, Construction & Mining, and Marine applications (MAN, Mercedes-Benz, Scania & Volvo).
+              Backed by official dealer EPC software, AI support, and 24-month warranties.
             </p>
             <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-              <span className="tag tag--filled">EST. 1972</span>
-              <span className="tag tag--safety">24-MO WARRANTY</span>
-              <span className="tag tag--outline-safety">15K+ LINE ITEMS</span>
+              <span className="tag tag--filled">SINCE 1969</span>
+              <span className="tag tag--safety">DOMESTIC 24H / GLOBAL 7D</span>
+              <span className="tag tag--outline-safety">DEALER EPC & AI SUPPORT</span>
             </div>
           </div>
 
           <div className="footer__col">
-            <div className="footer__col-title">Truck Makes</div>
-            <Link href="/parts?brand=volvo">Volvo FH / FM / FMX</Link>
-            <Link href="/parts?brand=mercedes">Mercedes Actros / Axor</Link>
-            <Link href="/parts?brand=scania">Scania R / S / G Series</Link>
-            <Link href="/parts?brand=man">MAN TGX / TGS / TGA</Link>
-            <Link href="/parts?category=dismantled">Certified Dismantled Parts</Link>
+            <div className="footer__col-title">Operating Sectors</div>
+            <Link href="/parts?segment=trucks">🚛 Heavy Commercial Trucks</Link>
+            <Link href="/parts?segment=buses">🚌 Intercity & Luxury Buses (Volvo B7R/B9R/9400)</Link>
+            <Link href="/parts?segment=mining">🚜 Construction & Heavy Mining Tippers</Link>
+            <Link href="/parts?segment=marine">⚓ Marine Propulsion & Power Diesels</Link>
+            <Link href="/parts?category=dismantled">Certified Dismantled Assemblies</Link>
           </div>
 
           <div className="footer__col">
-            <div className="footer__col-title">Parts Lines</div>
-            <Link href="/parts?category=brakes">Brakes & Bremskerl Pads</Link>
-            <Link href="/parts?category=suspension">Air Springs & Shock Absorbers</Link>
-            <Link href="/parts?category=engine">Turbos, Water Pumps & Blocks</Link>
-            <Link href="/parts?category=transmission">Heavy Duty Clutch Kits</Link>
-            <Link href="/parts?category=pneumatics">E-APU Air Dryers & Valves</Link>
+            <div className="footer__col-title">European Brands</div>
+            <Link href="/brands#volvo">Volvo Trucks, Buses & Penta</Link>
+            <Link href="/brands#mercedes">Mercedes Actros, Axor & Arocs</Link>
+            <Link href="/brands#scania">Scania R / S / V8 & Metrolink</Link>
+            <Link href="/brands#man">MAN TGX, TGS & Lion&apos;s Coach</Link>
+            <Link href="/parts?category=brakes">Bremskerl Germany Brake Pads</Link>
           </div>
 
           <div className="footer__col footer__col--wide">
-            <div className="footer__col-title">Global Facilities & Dispatch</div>
+            <div className="footer__col-title">Global Facilities & Fast Dispatch</div>
             <p style={{ fontSize: "0.85rem", opacity: 0.8, marginBottom: "0.5rem" }}>
-              <strong style={{ color: "var(--safety)" }}>Central Warehouse:</strong> Survey 36/1B Dhamani, Khalapur, MH, India (Beside Tata Steel)
+              <strong style={{ color: "var(--safety)" }}>Domestic Express (24 Hours):</strong> Central Warehouse, Survey 36/1B Dhamani, Khalapur, MH (Beside Tata Steel)
             </p>
             <p style={{ fontSize: "0.85rem", opacity: 0.8, marginBottom: "0.5rem" }}>
-              <strong style={{ color: "var(--safety)" }}>Mumbai Showroom:</strong> Shop 3, Bella Apts, Plot 122, 5th Rd, Khar West, Mumbai 400052
+              <strong style={{ color: "var(--safety)" }}>Corporate Showroom:</strong> Shop 3, Bella Apts, Plot 122, 5th Rd, Khar West, Mumbai 400052
             </p>
             <p style={{ fontSize: "0.85rem", opacity: 0.8, marginBottom: "0.5rem" }}>
-              <strong style={{ color: "var(--safety)" }}>Istanbul Export Hub:</strong> Rm 252, Özyurtlar N5 Suites, Esenyurt/İstanbul, Türkiye
+              <strong style={{ color: "var(--safety)" }}>Global Express (7 Days):</strong> Rm 252, Özyurtlar N5 Suites, Esenyurt/İstanbul, Türkiye
             </p>
             <div style={{ marginTop: "1rem", display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
               <a href="tel:+919702666664" className="btn btn--primary btn--sm">Call: +91 9702666664</a>
@@ -64,7 +65,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span className="footer__copy">
-            &copy; 2026 Viking Tradelinks (V Stores & Services). All Rights Reserved. Engineered with TemplateMo 619 Axis Industrial design system.
+            &copy; 2026 Viking Tradelinks (A Viking Group Company Since 1969). All Rights Reserved. Engineered with TemplateMo 619 Axis Industrial design system.
           </span>
           <button className="footer__back-top" onClick={scrollToTop} aria-label="Back to top">
             ↑ BACK TO TOP

@@ -3,7 +3,7 @@
 import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { PARTS, CATEGORIES, BRANDS } from "@/data/partsData";
+import { PARTS, CATEGORIES, BRANDS, SECTORS } from "@/data/partsData";
 import { useRfq } from "@/context/RfqContext";
 import QuoteModal from "@/components/QuoteModal";
 import TickerBar from "@/components/TickerBar";
@@ -13,10 +13,12 @@ function PartsCatalogContent() {
   const searchParams = useSearchParams();
   const brandQuery = searchParams.get("brand") || "all";
   const categoryQuery = searchParams.get("category") || "all";
+  const segmentQuery = searchParams.get("segment") || "all";
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedBrand, setSelectedBrand] = useState(brandQuery);
   const [selectedCategory, setSelectedCategory] = useState(categoryQuery);
+  const [selectedSegment, setSelectedSegment] = useState(segmentQuery);
   const [selectedCondition, setSelectedCondition] = useState("all");
   const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'table'
   const [modalPart, setModalPart] = useState(null);
@@ -45,7 +47,14 @@ function PartsCatalogContent() {
       (selectedCondition === "new" && !part.condition.toLowerCase().includes("used")) ||
       (selectedCondition === "used" && part.condition.toLowerCase().includes("used"));
 
-    return matchesSearch && matchesBrand && matchesCategory && matchesCondition;
+    const matchesSegment =
+      selectedSegment === "all" ||
+      (selectedSegment === "trucks" && !part.title.toLowerCase().includes("boat")) ||
+      (selectedSegment === "buses" && (part.category === "brakes" || part.category === "suspension" || part.category === "pneumatics" || part.brandCompatibility.some(b => b.toLowerCase().includes("volvo") || b.toLowerCase().includes("mercedes") || b.toLowerCase().includes("scania")))) ||
+      (selectedSegment === "mining" && (part.category === "brakes" || part.category === "transmission" || part.category === "drivetrain" || part.category === "cooling")) ||
+      (selectedSegment === "marine" && (part.category === "engine" || part.category === "cooling" || part.category === "engine-aux"));
+
+    return matchesSearch && matchesBrand && matchesCategory && matchesCondition && matchesSegment;
   });
 
   const openQuote = (part) => {
@@ -57,18 +66,19 @@ function PartsCatalogContent() {
     <>
       <section className="section section--dark" style={{ borderBottom: "4px solid var(--safety)" }}>
         <div className="container">
-          <div className="section__eyebrow">// PARTS INVENTORY INDEX</div>
+          <div className="section__eyebrow">// VIKING GROUP SINCE 1969 • COMMERCIAL CATALOGUE</div>
           <h1 className="section__title" style={{ fontSize: "var(--fs-h1)", marginBottom: "1rem" }}>
             Commercial Parts<br />Catalogue<span className="accent">.</span>
           </h1>
-          <p style={{ maxWidth: "620px", fontSize: "1rem", opacity: 0.75, lineHeight: "1.8" }}>
-            Browse certified OEM alternatives and tested dismantled assemblies across 15,000+ line items in our Khalapur central warehouse and Mumbai inventory.
+          <p style={{ maxWidth: "660px", fontSize: "1.02rem", opacity: 0.8, lineHeight: "1.8" }}>
+            Browse certified OEM alternatives and tested dismantled assemblies across 15,000+ line items for
+            <strong> Trucks, Buses, Mining & Marine</strong>. Guaranteed Domestic Dispatch in 24 Hours & International Delivery in 7 Days.
           </p>
 
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
-            <span className="tag tag--filled">100% BOLT-ON VERIFIED</span>
-            <span className="tag tag--safety">24-MONTH WARRANTY</span>
-            <span className="tag tag--blue">TESTED DISMANTLED ASSEMBLIES</span>
+            <span className="tag tag--filled">SINCE 1969</span>
+            <span className="tag tag--safety">DOMESTIC 24H • GLOBAL 7D</span>
+            <span className="tag tag--blue">DEALER EPC (IMPACT • EPC • MULTI • MANTIS) & AI SUPPORT</span>
           </div>
         </div>
       </section>
@@ -107,6 +117,7 @@ function PartsCatalogContent() {
                       setSelectedBrand("all");
                       setSelectedCategory("all");
                       setSelectedCondition("all");
+                      setSelectedSegment("all");
                     }}
                     style={{ background: "none", border: "none", fontSize: "0.7rem", color: "var(--safety)", cursor: "pointer", textDecoration: "underline" }}
                   >
@@ -129,10 +140,56 @@ function PartsCatalogContent() {
                   />
                 </div>
 
+                {/* Application Sector Filter */}
+                <div style={{ marginBottom: "1.5rem" }}>
+                  <label style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", display: "block", marginBottom: "0.4rem" }}>
+                    Operational Sector
+                  </label>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                    <button
+                      onClick={() => setSelectedSegment("all")}
+                      style={{
+                        padding: "0.4rem 0.6rem",
+                        textAlign: "left",
+                        background: selectedSegment === "all" ? "var(--safety)" : "var(--base)",
+                        color: selectedSegment === "all" ? "#fff" : "var(--ink)",
+                        border: "1px solid rgba(0,0,0,0.15)",
+                        fontSize: "0.75rem",
+                        cursor: "pointer",
+                        fontWeight: 600,
+                      }}
+                    >
+                      All Sectors
+                    </button>
+                    {SECTORS.map((s) => (
+                      <button
+                        key={s.id}
+                        onClick={() => setSelectedSegment(s.id)}
+                        style={{
+                          padding: "0.4rem 0.6rem",
+                          textAlign: "left",
+                          background: selectedSegment === s.id ? "var(--safety)" : "var(--base)",
+                          color: selectedSegment === s.id ? "#fff" : "var(--ink)",
+                          border: "1px solid rgba(0,0,0,0.15)",
+                          fontSize: "0.75rem",
+                          cursor: "pointer",
+                          fontWeight: 600,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "0.4rem",
+                        }}
+                      >
+                        <span>{s.icon}</span>
+                        <span>{s.shortName}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Brand Filter */}
                 <div style={{ marginBottom: "1.5rem" }}>
                   <label style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", display: "block", marginBottom: "0.4rem" }}>
-                    Truck Platform
+                    European Brand
                   </label>
                   <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
                     <button

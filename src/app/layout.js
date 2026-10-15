@@ -7,6 +7,8 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { RfqProvider } from "@/context/RfqContext";
 import RfqDrawer from "@/components/RfqDrawer";
 
+import FloatingConsulting from "@/components/FloatingConsulting";
+
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
@@ -20,28 +22,31 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "VIKING TRADELINKS — Heavy European Truck Spare Parts Since 1972",
+  title: "VIKING TRADELINKS — European Commercial Spare Parts (Viking Group Since 1969)",
   description:
-    "Specialist suppliers for MAN, Mercedes-Benz, Scania & Volvo trucks. New OEM alternatives and certified dismantled parts. 24-hour dispatch worldwide and across India.",
+    "A Viking Group Company Since 1969. Specialist suppliers for Trucks, Buses, Mining & Marine (MAN, Mercedes-Benz, Scania & Volvo). Domestic dispatch in 24 hours across India, international delivery in 7 days.",
   keywords: [
     "Viking Tradelinks",
-    "Viking Europarts",
+    "Viking Group Since 1969",
     "European truck parts",
+    "European bus parts",
+    "Volvo bus parts B7R B9R B11R 9400",
     "MAN truck spare parts",
     "Mercedes Actros parts",
     "Scania truck parts",
-    "Volvo FH FM parts",
+    "Volvo FH FM FMX parts",
+    "Mining truck parts",
+    "Marine diesel parts",
     "Bremskerl brake pads",
     "truck brake discs",
-    "truck air springs",
     "Mumbai truck parts",
     "Khalapur warehouse",
   ],
-  authors: [{ name: "V Stores & Services / Viking Tradelinks" }],
+  authors: [{ name: "Viking Tradelinks (Viking Group)" }],
   openGraph: {
-    title: "VIKING TRADELINKS — Heavy European Truck Spare Parts Since 1972",
+    title: "VIKING TRADELINKS — European Commercial Parts (Viking Group Since 1969)",
     description:
-      "Specialist suppliers for MAN, Mercedes-Benz, Scania & Volvo heavy commercial vehicles. 24-hour dispatch, 24-month warranty on new parts.",
+      "A Viking Group Company Since 1969. Specialist suppliers for Trucks, Buses, Construction & Mining, and Marine. Domestic 24h & International 7d dispatch.",
     url: "https://vikingeuroparts.com",
     siteName: "Viking Tradelinks",
     type: "website",
@@ -59,6 +64,7 @@ export default function RootLayout({ children }) {
           <main>{children}</main>
           <Footer />
           <WhatsAppWidget />
+          <FloatingConsulting />
           <RfqDrawer />
         </RfqProvider>
       </body>

@@ -1,35 +1,82 @@
+export const SECTORS = [
+  {
+    id: "trucks",
+    name: "Heavy Commercial Trucks",
+    shortName: "Trucks",
+    icon: "🚛",
+    desc: "Long-haul prime movers, tractor trailers, multi-axle freight carriers & tippers for MAN, Mercedes-Benz, Scania & Volvo.",
+    keyModels: "Volvo FH/FM, Actros MP3/MP4, Scania R/S-Series, MAN TGX/TGS",
+  },
+  {
+    id: "buses",
+    name: "Intercity & Luxury Buses",
+    shortName: "Buses & Coaches",
+    icon: "🚌",
+    desc: "Multi-axle tourist coaches, intercity luxury buses, and high-capacity low-floor passenger fleets powered by European chassis.",
+    keyModels: "Volvo B7R / B9R / B11R / 9400 / 9600, Mercedes Multi-Axle, Scania Metrolink",
+  },
+  {
+    id: "mining",
+    name: "Construction & Heavy Mining",
+    shortName: "Construction & Mining",
+    icon: "🚜",
+    desc: "Severe-duty mining tippers, rigid dumpers, quarry haulers, excavators, and heavy earthmoving commercial powertrains.",
+    keyModels: "Volvo FMX Mining Tippers, Mercedes Arocs Heavy, Scania G-Series Heavy Haulage",
+  },
+  {
+    id: "marine",
+    name: "Marine Propulsion & Industrial Power",
+    shortName: "Marine",
+    icon: "⚓",
+    desc: "Heavy marine inboard engines, auxiliary marine generator sets, industrial pumps, and high-displacement commercial diesels.",
+    keyModels: "Volvo Penta D13 / D16 Marine, Scania Marine DI13 / DI16, MTU / Mercedes Heavy Marine",
+  },
+];
+
 export const BRANDS = [
   {
     id: "man",
-    name: "MAN Trucks",
-    series: ["TGX 18.440 / 18.480 / 26.540", "TGS 26.400 / 33.480", "TGA 18.410"],
-    desc: "Heavy haulage & long distance German commercial tractors & tippers.",
+    name: "MAN Trucks & Commercial",
+    sectors: ["Trucks", "Buses", "Construction & Mining", "Marine & Power"],
+    series: ["TGX 18.440 / 18.480 / 26.540", "TGS 26.400 / 33.480 Tipper", "Lion's Coach", "TGA 18.410"],
+    desc: "German commercial engineering for long haul, mining tippers, and high-capacity passenger transport.",
     color: "#E2231A",
     icon: "MAN",
+    knowMoreUrl: "/brands#man",
+    partsUrl: "/parts?brand=man",
   },
   {
     id: "mercedes",
-    name: "Mercedes-Benz",
-    series: ["Actros MP2 / MP3 / MP4 / MP5", "Axor 2628 / 3340", "Arocs Heavy Construction", "Atego"],
-    desc: "Premier German fleet standard with OM501LA, OM502LA, OM471 powertrains.",
+    name: "Mercedes-Benz Commercial",
+    sectors: ["Trucks", "Buses", "Construction & Mining"],
+    series: ["Actros MP2 / MP3 / MP4 / MP5", "Axor 2628 / 3340", "Arocs Heavy Construction", "Multi-Axle Intercity Coaches"],
+    desc: "Premier German fleet standard with OM501LA, OM502LA, OM471 powertrains and Powershift gearboxes.",
     color: "#00ADEF",
     icon: "MB",
+    knowMoreUrl: "/brands#mercedes",
+    partsUrl: "/parts?brand=mercedes",
   },
   {
     id: "scania",
-    name: "Scania",
-    series: ["R-Series R420 / R500 / R580 V8", "S-Series Highline", "G-Series Heavy Haul", "P-Series Distribution"],
-    desc: "Swedish heavy endurance engineering and modular V8 powertrains.",
+    name: "Scania Transport Solutions",
+    sectors: ["Trucks", "Buses", "Construction & Mining", "Marine"],
+    series: ["R-Series R420 / R500 / R580 V8", "S-Series Highline", "Metrolink HD Coach", "G-Series Mining"],
+    desc: "Swedish heavy endurance engineering, modular V8 powertrains, and high-torque Opticruise transmissions.",
     color: "#041E42",
     icon: "SCN",
+    knowMoreUrl: "/brands#scania",
+    partsUrl: "/parts?brand=scania",
   },
   {
     id: "volvo",
-    name: "Volvo Trucks",
-    series: ["FH12 380 / 420 / 460", "FH16 540 / 600 / 750", "FM9 / FM11 / FM12 / FM13", "FMX Mining & Heavy"],
-    desc: "Swedish benchmark in road safety, D12D / D13C engines and I-Shift transmissions.",
+    name: "Volvo Trucks & Buses",
+    sectors: ["Trucks", "Buses", "Construction & Mining", "Marine & Penta"],
+    series: ["FH12 / FH16 540 / 750", "FM9 / FM11 / FM12 / FM13", "FMX Mining 8x4", "B7R / B9R / B11R / 9400 / 9600 Coaches"],
+    desc: "Swedish global benchmark in road safety, D12D / D13C engines, B7R/B9R/B11R buses, and I-Shift transmissions.",
     color: "#003057",
     icon: "VLV",
+    knowMoreUrl: "/brands#volvo",
+    partsUrl: "/parts?brand=volvo",
   },
 ];
 
@@ -376,80 +423,85 @@ export const SMART_FEATURES = [
   {
     id: "feat-1",
     icon: "bi bi-truck",
-    title: "Shipment within 24 hours",
-    desc: "Together with our reliable transport partners, we assure you a fast delivery directly from our Khalapur yard or Mumbai showroom across India and to global seaports.",
+    title: "Domestic 24h & Global 7d Dispatch",
+    desc: "Guaranteed domestic shipment dispatched within 24 hours across India from our Khalapur central warehouse & Mumbai depot. Express international delivery completed within 7 days worldwide via air and sea hubs.",
   },
   {
     id: "feat-2",
-    icon: "bi bi-award",
-    title: "Man, Mercedes, Scania & VOLVO expert",
-    desc: "European commercial specialist since 1972. Our staff has in-depth technical dealership knowledge to assist you with any questions related to these heavy brands.",
+    icon: "bi bi-cpu",
+    title: "Dealer Knowledge, EPC Software & AI Support",
+    desc: "Factory dealership expertise powered by official EPC (Electronic Parts Catalog) software (Volvo IMPACT, MB EPC, Scania Multi, MAN Mantis) integrated with AI-assisted parts lookup & VIN cross-referencing.",
   },
   {
     id: "feat-3",
-    icon: "bi bi-gear-wide-connected",
-    title: "New and used parts",
-    desc: "We can offer you almost all truck parts, from full engines and transmissions to brakes, because of our extensive stock of new OEM and tested dismantled truck parts.",
+    icon: "bi bi-award",
+    title: "Viking Group Heritage Since 1969",
+    desc: "A proud Viking Group company operating continuously since 1969. In-depth technical knowledge and direct factory connections for MAN, Mercedes-Benz, Scania, and Volvo platforms.",
   },
   {
     id: "feat-4",
     icon: "bi bi-shield-check",
-    title: "Used parts with warranty",
-    desc: "We offer a standard 14-day warranty on all of our used parts. Additionally, we offer up to 6 months warranty on selected assemblies, plus 24 months on all new parts.",
+    title: "24-Mo Warranty on New / Certified Used",
+    desc: "24 months warranty on all brand new European parts. For tested dismantled assemblies, we offer our signature 14-day fitment guarantee plus up to 6 months warranty on select units.",
   },
 ];
 
-export const VSTORES_BENEFITS = [
+export const VIKING_BENEFITS = [
   {
-    icon: "bi bi-check-circle",
-    title: "Quality",
-    desc: "Our Truck parts are carefully selected and meet the highest industry standards. We offer parts from reputable manufacturers such as Bremskerl, MAN, Mercedes, Scania & VOLVO so you can rely on performance and durability.",
+    icon: "bi bi-cpu-fill",
+    title: "Dealer Software & AI Precision",
+    desc: "Instant chassis verification through factory EPC dealer catalogs (IMPACT, Mantis, Multi, WIS) combined with AI-guided part compatibility checks.",
   },
   {
-    icon: "bi bi-tag",
-    title: "Affordability",
-    desc: "We understand that budgets are important. That's why we also offer alternative brands with competitive prices without compromising on quality. You get value for your money.",
+    icon: "bi bi-check-circle",
+    title: "Direct OEM European Sourcing",
+    desc: "Our commercial parts meet genuine OEM specifications. Directly imported from Germany, Sweden, and Turkey including Bremskerl, Wabco, Knorr, Sachs & Bosch.",
+  },
+  {
+    icon: "bi bi-lightning-charge",
+    title: "Domestic 24h / Global 7d",
+    desc: "We understand that downtime costs fortunes. Domestic shipments dispatch within 24 hours across India; international air deliveries reach your doorstep in 7 days.",
   },
   {
     icon: "bi bi-grid",
-    title: "Extensive selection",
-    desc: "Our inventory includes a wide range of Truck parts, from engines and transmissions to brakes, suspension, and more. Whatever your needs, we have it in stock.",
+    title: "Multi-Sector Inventory",
+    desc: "15,000+ line items covering Heavy Commercial Trucks, Intercity Buses & Coaches, Construction & Heavy Mining, and Marine Propulsion systems.",
   },
   {
-    icon: "bi bi-headset",
-    title: "Expert advice",
-    desc: "Our staff has in-depth knowledge of trucks and their parts. They are ready to advise and assist you in finding the right parts for your specific make and model.",
-  },
-  {
-    icon: "bi bi-speedometer2",
-    title: "Fast delivery",
-    desc: "We understand that downtime is costly in the transportation industry. That's why we strive for quick shipping, so you can get back on the road quickly.",
+    icon: "bi bi-tag",
+    title: "Competitive Pricing & Heritage",
+    desc: "A Viking Group enterprise since 1969. High-volume procurement gives fleet operators up to 40% savings compared to standard dealer markups.",
   },
 ];
+
+// Alias for backwards compatibility
+export const VSTORES_BENEFITS = VIKING_BENEFITS;
 
 export const LOGISTICS_SERVICES = [
   {
     id: "shipping",
     icon: "bi bi-globe",
-    title: "Worldwide Shipping",
-    desc: "If you are purchasing larger parts or a large quantity of Truck parts, it may be interesting to load them into a container and ship them worldwide to the port of your choice. We exclusively work with reliable shipping companies, ensuring available cargo space on the next available vessel. We always offer all-inclusive shipping rates and take care of all the necessary documentation.",
-    tag: "CONTAINER CARGO",
+    title: "Domestic 24-Hr & International 7-Day Logistics",
+    desc: "Need express delivery? Domestic orders dispatch within 24 hours across India from our Khalapur yard and Mumbai depot. For international clients, we coordinate scheduled air freight (7-day delivery) and container vessel cargo to your nearest seaport with complete customs documentation.",
+    tag: "DOMESTIC 24H • GLOBAL 7D",
   },
   {
     id: "assortment",
     icon: "bi bi-box-seam",
-    title: "Assortment of Truck parts",
-    desc: "At V STORES, we have an extensive assortment of Truck parts mainly consisting of parts for MAN, Mercedes, Scania & VOLVO. In addition to used parts from dismantled trucks, there is a wide range of new, alternative Truck parts available produced in Europe. The good quality of these sets has been confirmed by many customers over the years.",
-    tag: "EUROPEAN OEM & OES",
+    title: "Assortment for Trucks, Buses, Mining & Marine",
+    desc: "At Viking Tradelinks, we maintain an exhaustive inventory across Trucks, Buses & Coaches, Construction/Mining, and Marine applications for MAN, Mercedes-Benz, Scania & VOLVO. Featuring new precision European OEM alternatives and tested dismantled assemblies backed by engineering warranty.",
+    tag: "EUROPEAN OEM & CERTIFIED DISMANTLED",
   },
 ];
 
 export const TELEMETRY_FEED = [
-  { time: "08:14:02Z", tag: "DISPATCH", status: "ok", msg: "Khalapur Yard: 4x Volvo FH12 Air Springs dispatched to JNPT Logistics Fleet" },
+  { time: "08:14:02Z", tag: "DISPATCH", status: "ok", msg: "Khalapur Yard: 4x Volvo FH12 Air Springs dispatched to JNPT Logistics Fleet (Domestic 24h SLA)" },
   { time: "08:19:44Z", tag: "IMPORT", status: "sys", msg: "Istanbul Hub: Container TR-8492 cleared customs — 350 Bremskerl Brake Pad sets incoming" },
   { time: "08:24:12Z", tag: "QC-PASS", status: "ok", msg: "Khalapur Lab: 100% Ultrasonic test passed for Mercedes Actros 434mm Brake Rotors" },
+  { time: "08:28:40Z", tag: "AI-EPC", status: "ok", msg: "Dealer Software: Volvo B9R Coach EPC catalog verified for Taj Travels fleet inquiry" },
   { time: "08:31:05Z", tag: "STOCK", status: "info", msg: "Mumbai Showroom: Scania 430mm Clutch Kits restocked (24 units available)" },
   { time: "08:42:19Z", tag: "DISPATCH", status: "ok", msg: "Express Courier: MAN TGX Turbocharger unit shipped to Raipur Mining Client" },
+  { time: "08:47:11Z", tag: "GLOBAL", status: "ok", msg: "Istanbul Desk: Air freight parcel en route to Dubai (7-day international delivery)" },
   { time: "08:50:33Z", tag: "WARRANTY", status: "ok", msg: "Claim rate benchmark: 0.08% across 15,200 delivered line items" },
   { time: "08:58:02Z", tag: "DISMANTLE", status: "sys", msg: "Khalapur Yard: Volvo FH16 D16E 600HP Engine complete assembly crated for inspection" },
 ];
@@ -459,7 +511,7 @@ export const TESTIMONIALS = [
     name: "Taj Travels Pvt Ltd",
     role: "Fleet Maintenance Division (MAN, Mercedes, Scania & Volvo Coaches & Haulers)",
     rating: 5,
-    text: "We would like to mention our appreciation of spare parts quality supplied by m/s V STORES AND SERVICES. We have been purchasing regular spare parts from their organization, BRAKE PADS OF BREMSKERL and other BRAKE Related spares like caliper kits and rotors have been highly satisfactory. They also supply various spares parts for Man, Mercedes, Scania & VOLVO Application which are supplied on time and are reliable for our fleet, We wish them success and a long term business understanding with their company.",
+    text: "We would like to mention our appreciation of spare parts quality supplied by m/s Viking Tradelinks (Viking Group). We have been purchasing regular spare parts from their organization — BRAKE PADS OF BREMSKERL and other brake-related spares like caliper kits and rotors have been highly satisfactory. They also supply various spare parts for MAN, Mercedes, Scania & VOLVO applications which are supplied on time and are reliable for our fleet. We wish them continued success and a long-term business relationship.",
     avatar: "/images/avatar.webp",
   },
   {
