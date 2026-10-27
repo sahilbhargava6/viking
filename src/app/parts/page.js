@@ -7,7 +7,6 @@ import { PARTS, CATEGORIES, BRANDS, SECTORS } from "@/data/partsData";
 import { useRfq } from "@/context/RfqContext";
 import QuoteModal from "@/components/QuoteModal";
 import TickerBar from "@/components/TickerBar";
-import TelemetryBar from "@/components/TelemetryBar";
 
 function PartsCatalogContent() {
   const searchParams = useSearchParams();
@@ -83,18 +82,9 @@ function PartsCatalogContent() {
         </div>
       </section>
 
-      <TelemetryBar />
-
       <section className="section">
         <div className="container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(12, 1fr)",
-              gap: "2rem",
-              alignItems: "start",
-            }}
-          >
+          <div className="catalogue-grid-layout">
             {/* Left Column: Faceted Sidebar Filter */}
             <div className="catalogue-sidebar">
               <div
@@ -214,15 +204,23 @@ function PartsCatalogContent() {
                         style={{
                           padding: "0.4rem 0.6rem",
                           textAlign: "left",
-                          background: selectedBrand === b.id ? "var(--safety)" : "var(--base)",
+                          background: selectedBrand === b.id ? "var(--safety)" : b.id === "volvo" ? "rgba(255, 62, 0, 0.08)" : "var(--base)",
                           color: selectedBrand === b.id ? "#fff" : "var(--ink)",
-                          border: "1px solid rgba(0,0,0,0.15)",
+                          border: b.id === "volvo" ? "2px solid var(--safety)" : "1px solid rgba(0,0,0,0.15)",
                           fontSize: "0.75rem",
                           cursor: "pointer",
-                          fontWeight: 600,
+                          fontWeight: b.id === "volvo" ? 800 : 600,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
                         }}
                       >
-                        {b.name}
+                        <span>{b.name}</span>
+                        {b.id === "volvo" && (
+                          <span style={{ fontSize: "0.62rem", background: "var(--safety)", color: "#fff", padding: "1px 5px", fontWeight: 800 }}>
+                            FLAGSHIP
+                          </span>
+                        )}
                       </button>
                     ))}
                   </div>

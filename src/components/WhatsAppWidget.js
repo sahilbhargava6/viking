@@ -185,8 +185,8 @@ export default function WhatsAppWidget() {
             right: "2px",
             width: "14px",
             height: "14px",
-            background: "#FF3E00",
-            border: "2px solid #000",
+            background: "var(--burgundy)",
+            border: "2px solid var(--gold)",
             borderRadius: "50%",
           }}
         ></span>

@@ -11,32 +11,73 @@
 }
 
 :root {
-  /* Industrial Palette */
+  /* ============================================================
+     VIKING TRADELINKS — PRESTIGE LIGHT GREY, BURGUNDY & GOLD
+     Modern European Fleet Corporate & Engineering Design System
+     Established in 1969 • Clean, Bright, Premium Aesthetic
+     ============================================================ */
+
+  /* Base & Inks */
   --base: #FFFFFF;
-  --ink: #000000;
-  --safety: #FF3E00; /* High-vis safety orange / flame */
-  --safety-dark: #D63400;
-  --viking-blue: #0E1B2E; /* Heavy transport deep naval steel */
-  --muted: #737373;
-  --surface: #F5F5F0;
-  --surface-tint: #EBEBE4;
-  --term-bg: #090A0D;
-  --term-green: #00FF66;
-  --term-amber: #FFAA00;
-  --term-border: rgba(255, 255, 255, 0.12);
+  --ink: #1E232D;          /* Deep Slate / Charcoal Text (readable & sharp) */
+  --ink-light: #3D4452;
+  --ink-muted: #64748B;
 
-  /* Borders & Brutalist Shadows */
-  --border: 4px solid var(--ink);
-  --border-thin: 2px solid var(--ink);
-  --border-hair: 1px solid rgba(0, 0, 0, 0.12);
-  --shadow: 8px 8px 0px var(--ink);
-  --shadow-sm: 4px 4px 0px var(--ink);
-  --shadow-safety: 8px 8px 0px var(--safety);
-  --shadow-hover: 12px 12px 0px var(--ink);
-  --shadow-safety-hover: 12px 12px 0px var(--safety);
+  /* Burgundy Hierarchy (Royal Bordeaux / Wine) */
+  --burgundy: #7A1528;     /* Rich Royal Burgundy - Primary Brand Accent */
+  --burgundy-dark: #520D1A; /* Deep Wine Bordeaux */
+  --burgundy-light: #9B1D35; /* Vibrant Wine Red for hovers & active states */
+  --burgundy-tint: rgba(122, 21, 40, 0.08);
 
-  /* Typography Scales - Increased for bold, legible industrial hierarchy */
-  --fs-hero: clamp(3.8rem, 10.5vw, 11rem);
+  /* Gold Hierarchy (Prestige European Automotive & Since 1969 Heritage) */
+  --gold: #C5A059;         /* Warm European Heritage Gold */
+  --gold-rich: #D4AF37;    /* Classic Vivid Gold */
+  --gold-dark: #9E7418;    /* Antique Burnished Gold */
+  --gold-light: #F4E7BF;   /* Champagne Tint */
+  --gold-tint: rgba(197, 160, 89, 0.14);
+
+  /* Map Legacy --safety to Burgundy for seamless global compatibility */
+  --safety: var(--burgundy);
+  --safety-dark: var(--burgundy-dark);
+  --viking-blue: #1E3A5F;
+  
+  /* Light Grey Scales (Clean, Modern, Sophisticated Titanium & Silver Grey) */
+  --grey-50: #F8FAFC;
+  --grey-100: #EEF2F6;      /* Primary Light Grey Page Background */
+  --grey-200: #E2E8F0;      /* Secondary Light Grey Surface */
+  --grey-300: #CBD5E1;      /* Crisp Border Grey */
+  --grey-400: #94A3B8;
+  --grey-500: #64748B;
+  --grey-600: #475569;
+  --grey-700: #334155;
+  --grey-800: #1E293B;
+  --grey-900: #0F172A;
+
+  --muted: #64748B;
+  --surface: #EEF2F6;      /* Clean modern Light Grey */
+  --surface-tint: #E2E8F0;
+  --term-bg: #E8EEF5;      /* Light Technical Titanium Grey */
+  --term-green: #059669;   /* High-contrast Emerald Green on light grey */
+  --term-amber: var(--gold-dark);
+  --term-border: rgba(197, 160, 89, 0.35);
+
+  /* Clean Refined Borders & Soft Ambient Shadows */
+  --border: 2px solid var(--grey-300);
+  --border-strong: 2px solid var(--ink);
+  --border-thin: 1px solid var(--grey-300);
+  --border-gold: 2px solid var(--gold);
+  --border-burgundy: 2px solid var(--burgundy);
+  --border-hair: 1px solid rgba(0, 0, 0, 0.08);
+  --shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.06);
+  --shadow-safety: 4px 4px 0px var(--burgundy);
+  --shadow-gold: 4px 4px 0px var(--gold);
+  --shadow-hover: 6px 6px 0px var(--burgundy);
+  --shadow-safety-hover: 6px 6px 0px var(--burgundy);
+  --shadow-gold-hover: 6px 6px 0px var(--gold);
+
+  /* Typography Scales - Refined & Balanced Industrial Hierarchy */
+  --fs-hero: clamp(2.3rem, 5.8vw, 6.2rem);
   --fs-h1: clamp(2.4rem, 5.5vw, 4.8rem);
   --fs-h2: clamp(1.8rem, 3.6vw, 3.2rem);
   --fs-h3: clamp(1.3rem, 2.2vw, 1.85rem);
@@ -50,7 +91,7 @@
   /* Spacing */
   --gap: clamp(1rem, 2vw, 2rem);
   --section-pad: clamp(4rem, 8vw, 8rem) clamp(1rem, 4vw, 4rem);
-  --header-h: 60px;
+  --header-h: 82px;
 }
 
 html {
@@ -73,7 +114,7 @@ body {
 
 main {
   flex: 1;
-  padding-top: calc(var(--header-h) + 30px);
+  padding-top: calc(var(--header-h) + 34px);
 }
 
 img {
@@ -196,7 +237,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .btn--primary:hover {
   transform: translate(-3px, -3px);
   box-shadow: var(--shadow-hover);
-  background: #ff4d14;
+  background: var(--burgundy-light);
 }
 
 .btn--primary:active {
@@ -239,25 +280,124 @@ h1, h2, h3, h4, h5, h6, .font-display {
   border-width: 2px;
 }
 
-/* Header & Nav */
-.header {
+/* Top Utility Announcement Bar */
+.topbar {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  padding: 0 clamp(0.75rem, 2vw, 2.5rem);
+  display: flex;
+  justifyContent: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  z-index: 1001;
+  font-family: var(--font-jetbrains-mono);
+  overflow: hidden;
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.topbar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.topbar__dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.topbar__sep {
+  opacity: 0.35;
+  user-select: none;
+}
+
+.topbar__email {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.15s ease;
+  font-size: 0.74rem;
+  text-decoration: none;
+}
+
+.topbar__email:hover {
+  color: var(--gold);
+}
+
+.topbar__phone {
+  color: var(--term-green);
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  padding: 2px 8px;
+  transition: all 0.15s ease;
+}
+
+.topbar__phone:hover {
+  background: var(--term-green);
+  color: #000;
+  border-color: var(--term-green);
+}
+
+.topbar__phone-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+/* Header & Nav - Expanded Big Industrial Scale */
+.header {
+  position: fixed;
+  top: 34px;
   left: 0;
   width: 100%;
   height: var(--header-h);
   z-index: 1000;
-  background: var(--ink);
+  background: var(--grey-900);
   color: var(--base);
-  border-bottom: 3px solid var(--safety);
+  border-bottom: 3px solid var(--gold);
   display: flex;
   align-items: center;
-  padding: 0 clamp(1rem, 2.5vw, 3rem);
+  padding: 0 clamp(0.75rem, 2vw, 2.5rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 .header__inner {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1600px;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -269,14 +409,14 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .header__left {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
   flex-shrink: 0;
 }
 
 .header__logo {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 800;
+  font-size: 1.15rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   display: flex;
@@ -285,22 +425,43 @@ h1, h2, h3, h4, h5, h6, .font-display {
   white-space: nowrap;
 }
 
+.header__brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__brand-name {
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.header__brand-sub {
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
 .header__logo-mark {
-  width: 36px;
-  height: 36px;
-  border: 2px solid var(--safety);
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--gold);
   background: #FFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 2px;
+  padding: 3px;
+  box-shadow: 2px 2px 0px rgba(197, 160, 89, 0.4);
 }
 
 .header__sep {
   width: 1px;
-  height: 22px;
-  background: rgba(255, 255, 255, 0.16);
+  height: 28px;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .header__nav {
@@ -312,56 +473,145 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 .header__nav a {
   font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.72rem;
+  font-size: 0.76rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   padding: 0 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.78);
   white-space: nowrap;
   height: 100%;
   line-height: 1;
-  transition: background 0.1s ease, color 0.1s ease;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 
 .header__nav a:hover,
 .header__nav a.active {
-  background: var(--safety);
+  background: var(--burgundy);
   color: #FFFFFF;
+}
+
+/* Distinct high-visibility styling for EV & Buses */
+.header__nav a.nav-link--ev {
+  background: rgba(0, 255, 102, 0.08);
+  color: var(--term-green);
+  font-weight: 700;
+  border-bottom: 3px solid var(--term-green);
+}
+
+.header__nav a.nav-link--ev:hover {
+  background: var(--term-green);
+  color: #000000;
+}
+
+/* Distinct high-visibility styling for Volvo Specialist Hub */
+.header__nav a.nav-link--volvo {
+  background: rgba(197, 160, 89, 0.16);
+  color: var(--gold-light);
+  font-weight: 800;
+  border-bottom: 3px solid var(--gold);
+}
+
+.header__nav a.nav-link--volvo:hover {
+  background: var(--gold);
+  color: #000000;
 }
 
 .header__right {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.9rem;
   flex-shrink: 0;
+}
+
+/* High-Impact Phone Pill Widget */
+.header__phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--grey-800);
+  border: 2px solid var(--gold);
+  padding: 0.45rem 1rem;
+  text-decoration: none;
+  color: #FFFFFF;
+  box-shadow: 3px 3px 0px var(--gold-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.header__phone-pill:hover {
+  background: var(--gold);
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 4px 4px 0px #FFFFFF;
+}
+
+.header__phone-pill:hover .header__phone-number {
+  color: var(--grey-900);
+}
+
+.header__phone-pill:hover .header__phone-label {
+  color: var(--grey-900);
+}
+
+.header__phone-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header__phone-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.header__phone-label {
+  font-size: 0.60rem;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-jetbrains-mono);
+}
+
+.header__phone-number {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  font-family: var(--font-jetbrains-mono);
 }
 
 /* Dedicated Header RFQ Button - Flawlessly fitted inside header */
 .header__rfq-btn {
-  height: 36px;
-  background: var(--safety);
+  height: 44px;
+  background: var(--burgundy);
   color: #FFFFFF;
-  border: 2px solid #000000;
-  box-shadow: none !important;
-  padding: 0 0.9rem;
+  border: 2px solid var(--gold);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+  padding: 0 1rem;
   font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.74rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .header__rfq-btn:hover {
-  background: #FF5214;
+  background: var(--burgundy-light);
+  border-color: #FFFFFF;
 }
 
 .header__rfq-btn:active {
@@ -518,23 +768,24 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 .hero__label {
   font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.72rem;
+  font-size: clamp(1.05rem, 1.75vw, 1.65rem);
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--safety);
-  margin-bottom: 1.2rem;
-  display: flex;
+  letter-spacing: 0.14em;
+  color: var(--gold-dark);
+  margin-bottom: 0.9rem;
+  display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.85rem;
   position: relative;
   z-index: 1;
 }
 
 .hero__label::before {
   content: '';
-  width: 32px;
-  height: 2px;
-  background: var(--safety);
+  width: 44px;
+  height: 4px;
+  background: var(--gold);
 }
 
 .hero__title {
@@ -630,6 +881,10 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 .bento-card--dark:hover {
   box-shadow: var(--shadow-safety-hover);
+}
+
+.bento-card--dark:hover {
+  box-shadow: var(--shadow-gold-hover);
 }
 
 .bento-card--safety {
@@ -769,7 +1024,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .stack__card-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
 
 .stack__card:nth-child(3) .tag { border-color: var(--base); color: var(--base); background: transparent; }
-.stack__card:nth-child(3) .tag--filled { background: var(--safety); border-color: var(--safety); }
+.stack__card:nth-child(3) .tag--filled { background: var(--burgundy); border-color: var(--burgundy); color: #FFFFFF; }
 
 /* Ticker Marquee */
 .ticker {
@@ -781,11 +1036,12 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 .ticker--safety {
-  background: var(--safety);
+  background: var(--burgundy);
+  color: #FFFFFF;
 }
 
 .ticker--safety .ticker__item::after {
-  background: var(--base);
+  background: var(--gold);
 }
 
 .ticker__track {
@@ -831,12 +1087,104 @@ h1, h2, h3, h4, h5, h6, .font-display {
   100% { transform: translateX(-50%); }
 }
 
+/* Dual Direction Brand Logo Marquee */
+.brand-marquee-section {
+  background: #090A0D;
+  border-top: 4px solid var(--burgundy);
+  border-bottom: 4px solid var(--burgundy);
+  padding: 1.4rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.brand-marquee-section::before,
+.brand-marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.brand-marquee-section::before {
+  left: 0;
+  background: linear-gradient(to right, #090A0D 0%, transparent 100%);
+}
+
+.brand-marquee-section::after {
+  right: 0;
+  background: linear-gradient(to left, #090A0D 0%, transparent 100%);
+}
+
+.brand-marquee-row {
+  display: flex;
+  overflow: hidden;
+  padding: 0.45rem 0;
+  user-select: none;
+}
+
+.brand-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  width: max-content;
+  animation: brandScrollForward 80s linear infinite;
+  will-change: transform;
+}
+
+.brand-marquee__track--reverse {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  width: max-content;
+  animation: brandScrollReverse 80s linear infinite;
+  will-change: transform;
+}
+
+.brand-marquee-row:hover .brand-marquee__track,
+.brand-marquee-row:hover .brand-marquee__track--reverse {
+  animation-play-state: paused;
+}
+
+@keyframes brandScrollForward {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes brandScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.brand-logo-pill {
+  height: 58px;
+  min-width: 155px;
+  max-width: 180px;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.9rem;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.brand-logo-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px var(--gold);
+}
+
 /* Terminal Log */
 .log {
   background: var(--term-bg);
-  border-bottom: 3px solid var(--safety);
+  border-bottom: 2px solid var(--gold);
   overflow: hidden;
-  color: #fff;
+  color: var(--ink);
 }
 
 .log__header {
@@ -844,18 +1192,18 @@ h1, h2, h3, h4, h5, h6, .font-display {
   align-items: center;
   justify-content: space-between;
   padding: 0.7rem clamp(1rem, 3vw, 3rem);
-  border-bottom: 1px solid var(--term-border);
+  border-bottom: 1px solid var(--grey-300);
 }
 
 .log__header-title {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--term-green);
+  color: var(--burgundy);
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .log__header-title::before {
@@ -863,14 +1211,14 @@ h1, h2, h3, h4, h5, h6, .font-display {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--term-green);
+  background: var(--burgundy);
   animation: pulse 2s ease-in-out infinite;
 }
 
 .log__header-status {
   font-size: 0.68rem;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ink-muted);
   text-transform: uppercase;
 }
 
@@ -902,18 +1250,18 @@ h1, h2, h3, h4, h5, h6, .font-display {
   letter-spacing: 0.04em;
   white-space: nowrap;
   padding: 0.35rem 1.6rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: #334155;
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.log__entry-time { color: rgba(255, 255, 255, 0.25); font-size: 0.62rem; }
+.log__entry-time { color: var(--ink-muted); font-size: 0.62rem; }
 .log__entry-tag { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.15em 0.55em; border: 1px solid; }
-.log-ok   { color: var(--term-green); border-color: rgba(0, 255, 102, 0.35); }
-.log-warn { color: var(--term-amber); border-color: rgba(255, 170, 0, 0.35); }
-.log-sys  { color: var(--safety);     border-color: rgba(255, 62, 0, 0.35); }
-.log__entry-msg { color: rgba(255, 255, 255, 0.65); }
+.log-ok   { color: #047857; border-color: rgba(4, 120, 87, 0.4); }
+.log-warn { color: var(--gold-dark); border-color: rgba(197, 160, 89, 0.4); }
+.log-sys  { color: var(--burgundy);     border-color: rgba(122, 21, 40, 0.4); }
+.log__entry-msg { color: #1E232D; font-weight: 500; }
 
 /* Interactive Parts Finder & Catalog */
 .part-finder {
@@ -1008,7 +1356,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   background: var(--ink);
   color: var(--base);
   padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 4rem);
-  border-top: 4px solid var(--safety);
+  border-top: 4px solid var(--burgundy);
 }
 
 .footer__inner {
@@ -1057,7 +1405,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--safety);
+  color: var(--gold);
   margin-bottom: 0.8rem;
 }
 
@@ -1069,7 +1417,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 .footer__col a:hover {
   opacity: 1;
-  color: var(--safety);
+  color: var(--gold);
 }
 
 .footer__bottom {
@@ -1100,8 +1448,8 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 .footer__back-top:hover {
-  background: var(--safety);
-  border-color: var(--safety);
+  background: var(--burgundy);
+  border-color: var(--burgundy);
 }
 
 /* Responsive */
@@ -1160,6 +1508,20 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 @media (max-width: 768px) {
+  .header__phone-pill {
+    padding: 0.35rem 0.65rem;
+    gap: 0.4rem;
+  }
+  .header__phone-label {
+    display: none;
+  }
+  .header__phone-number {
+    font-size: 0.88rem;
+  }
+  .header__logo-mark {
+    width: 42px;
+    height: 42px;
+  }
 
   .bento-card--wide,
   .bento-card--mid,
@@ -1332,12 +1694,422 @@ h1, h2, h3, h4, h5, h6, .font-display {
   animation: pulse 1.5s infinite;
 }
 
+/* Hero Responsive Classes & Volvo Badging */
+.hero__badges-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.hero__label--volvo {
+  background: var(--burgundy) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--gold) !important;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3) !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  padding: 0.35rem 0.8rem !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 0;
+}
+
+.hero__label--volvo::before {
+  display: none !important;
+}
+
+.hero__content-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  max-width: 620px;
+  width: 100%;
+}
+
+.hero__actions {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn--volvo-highlight {
+  border: 2px solid var(--safety) !important;
+  background: #090A0D !important;
+  color: #FFFFFF !important;
+  box-shadow: 3px 3px 0px var(--safety) !important;
+}
+
+.btn--volvo-highlight:hover {
+  background: var(--safety) !important;
+  color: #FFFFFF !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+.hero__stats {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  padding: clamp(1rem, 2.2vw, 1.6rem);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1.8rem);
+  align-items: center;
+}
+
+.hero__stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bento Grid Responsive Classes */
+.bento-grid--2col {
+  padding: clamp(1.2rem, 3.5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap);
+  align-items: center;
+}
+
+.bento-col-half {
+  grid-column: span 6;
+}
+
+/* Catalogue Grid Layout */
+.catalogue-grid-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .catalogue-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile Nav Drawer Overlay & Close Button */
+.header__nav-mobile-header {
+  display: none;
+}
+
+.header__nav-close {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 800;
+  transition: all 0.15s ease;
+}
+
+.header__nav-close:hover {
+  border-color: var(--safety);
+  color: var(--safety);
+}
+
+/* ============================================================
+   COMPREHENSIVE MULTI-SCREEN RESPONSIVE OPTIMIZATION
+   ============================================================ */
+
+/* Wide Screen (<= 1400px): Hide email to prevent any collision */
+@media (max-width: 1400px) {
+  .topbar__item--wide-only {
+    display: none !important;
+  }
+}
+
+/* Mid-tier Desktop (1301px - 1480px): Compact nav link paddings */
+@media (max-width: 1480px) and (min-width: 1301px) {
+  .header__nav a {
+    padding: 0 0.55rem;
+    font-size: 0.72rem;
+  }
+  .header__inner {
+    gap: 0.6rem;
+  }
+  .header__phone-pill {
+    padding: 0.35rem 0.75rem;
+  }
+  .header__phone-number {
+    font-size: 1rem;
+  }
+}
+
+/* Laptop, Tablet & Mobile Breakpoint (<= 1300px): Switch to Burger Menu & Simplify Topbar */
+@media (max-width: 1300px) {
+  .topbar__item--desktop-only {
+    display: none !important;
+  }
+
+  .header__burger {
+    display: flex;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(340px, 86vw);
+    height: 100vh;
+    background: #090A0D;
+    border-left: 4px solid var(--burgundy);
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85);
+    flex-direction: column;
+    padding: 1.5rem 1.2rem;
+    gap: 0.6rem;
+    transform: translateX(110%);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10000;
+    overflow-y: auto;
+  }
+
+  .header__nav.open {
+    transform: translateX(0);
+  }
+
+  .header__nav-mobile-header {
+    display: flex;
+    justifyContent: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .header__nav a {
+    height: auto;
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0;
+    justify-content: flex-start;
+    background: #11141C;
+    color: #FFFFFF;
+  }
+
+  .header__nav a.active {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+    color: #FFFFFF;
+  }
+
+  .header__nav a.nav-link--volvo {
+    border-left: 4px solid var(--gold) !important;
+  }
+}
+
+/* Tablet Breakpoint (<= 992px): Bento Grids collapse & Topbar simplifies */
+@media (max-width: 992px) {
+  .bento-grid--2col {
+    grid-template-columns: 1fr;
+    padding: 1.6rem 1.2rem;
+    gap: 1.8rem;
+  }
+
+  .bento-col-half {
+    grid-column: span 12;
+  }
+
+  .topbar__hide-tablet {
+    display: none !important;
+  }
+
+  .volvo-detail-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.5rem !important;
+  }
+
+  .volvo-detail-col-left,
+  .volvo-detail-col-right {
+    grid-column: span 12 !important;
+  }
+}
+
+/* Mobile Breakpoint (<= 768px): Stats 2x2, Compact Widgets, Topbar Phone */
 @media (max-width: 768px) {
-  .floating-consulting-trigger {
-    left: 12px;
-    bottom: 84px;
-    padding: 0.6rem 1rem;
+  :root {
+    --header-h: 74px;
+  }
+
+  main {
+    padding-top: calc(var(--header-h) + 34px);
+  }
+
+  .topbar__phone-label {
+    display: none !important;
+  }
+
+  .topbar__left {
+    font-size: 0.72rem;
+  }
+
+  .topbar__phone {
+    font-size: 0.78rem !important;
+    padding: 2px 6px !important;
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+
+  .header {
+    padding: 0 0.75rem;
+  }
+
+  .header__inner {
+    gap: 0.5rem;
+  }
+
+  .header__left {
+    gap: 0.5rem;
+  }
+
+  .header__logo-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header__brand-name {
+    font-size: 0.98rem;
+  }
+
+  .header__brand-sub {
+    font-size: 0.58rem;
+  }
+
+  .header__right {
+    gap: 0.45rem;
+  }
+
+  .header__phone-label {
+    display: none;
+  }
+
+  .header__phone-pill {
+    padding: 0.35rem 0.55rem;
+    gap: 0.35rem;
+  }
+
+  .header__phone-number {
+    font-size: 0.82rem;
+  }
+
+  .header__rfq-btn {
+    padding: 0 0.65rem;
+    height: 38px;
     font-size: 0.75rem;
+  }
+
+  .floating-consulting-trigger {
+    left: 10px;
+    bottom: 12px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.72rem;
+    z-index: 950;
+  }
+
+  .wa-trigger {
+    bottom: 12px !important;
+    right: 10px !important;
+    width: 46px !important;
+    height: 46px !important;
+    z-index: 950 !important;
+  }
+}
+
+/* Mobile Smartphone Breakpoint (<= 640px): Icon-based action buttons to fit all screens */
+@media (max-width: 640px) {
+  .header__logo-mark {
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+  }
+
+  .header__brand-name {
+    font-size: 0.90rem;
+  }
+
+  .header__brand-sub {
+    display: none;
+  }
+
+  .header__phone-number {
+    display: none;
+  }
+
+  .header__phone-pill {
+    padding: 0.4rem 0.55rem;
+    min-width: 38px;
+    height: 38px;
+    justify-content: center;
+  }
+
+  .header__rfq-btn {
+    padding: 0 0.55rem;
+    height: 38px;
+  }
+
+  .header__rfq-text {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: clamp(2.6rem, 11vw, 3.8rem);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero__content-card {
+    padding: 1.2rem 1rem;
+  }
+}
+
+/* Extra Small Smartphone Breakpoint (<= 380px): Safe margins, tight compact elements */
+@media (max-width: 380px) {
+  .header {
+    padding: 0 0.5rem;
+  }
+
+  .header__inner {
+    gap: 0.4rem;
+  }
+
+  .header__phone-number {
+    font-size: 0.80rem;
+  }
+
+  .header__phone-pill {
+    padding: 0.35rem 0.45rem;
+  }
+
+  .hero__stat-num {
+    font-size: 2.2rem;
+  }
+
+  .container {
+    padding-inline: 0.75rem;
   }
 }
 

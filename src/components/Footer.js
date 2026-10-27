@@ -12,9 +12,30 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__top">
           <div className="footer__brand">
-            <h2 className="footer__brand-name font-display">
-              Viking<br />Tradelinks<span className="accent">.</span>
-            </h2>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
+              <div
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  background: "#FFF",
+                  border: "2px solid var(--safety)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "3px",
+                  flexShrink: 0,
+                }}
+              >
+                <img
+                  src="/images/logo.png"
+                  alt="Viking Tradelinks Official Emblem"
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                />
+              </div>
+              <h2 className="footer__brand-name font-display" style={{ margin: 0, lineHeight: 1.1 }}>
+                Viking<br />Tradelinks<span className="accent">.</span>
+              </h2>
+            </div>
             <p className="footer__brand-desc">
               Global automotive solutions — A Viking Group Company Since 1969. Heavy European commercial spare parts
               specialist for Trucks, Buses, Construction & Mining, and Marine applications (MAN, Mercedes-Benz, Scania & Volvo).
@@ -28,21 +49,21 @@ export default function Footer() {
           </div>
 
           <div className="footer__col">
-            <div className="footer__col-title">Operating Sectors</div>
-            <Link href="/parts?segment=trucks">🚛 Heavy Commercial Trucks</Link>
-            <Link href="/parts?segment=buses">🚌 Intercity & Luxury Buses (Volvo B7R/B9R/9400)</Link>
-            <Link href="/parts?segment=mining">🚜 Construction & Heavy Mining Tippers</Link>
-            <Link href="/parts?segment=marine">⚓ Marine Propulsion & Power Diesels</Link>
-            <Link href="/parts?category=dismantled">Certified Dismantled Assemblies</Link>
+            <div className="footer__col-title">Fleet Divisions</div>
+            <Link href="/trucks">🚛 European Commercial Trucks</Link>
+            <Link href="/ev">⚡ EV &amp; Electric Bus Fleets</Link>
+            <Link href="/exports">🇮🇳 Indian Exports &amp; FUSO Division</Link>
+            <Link href="/parts?segment=buses">🚌 Intercity Coaches &amp; Buses</Link>
+            <Link href="/parts?segment=mining">🚜 Construction &amp; Mining Tippers</Link>
           </div>
 
           <div className="footer__col">
-            <div className="footer__col-title">European Brands</div>
-            <Link href="/brands#volvo">Volvo Trucks, Buses & Penta</Link>
-            <Link href="/brands#mercedes">Mercedes Actros, Axor & Arocs</Link>
-            <Link href="/brands#scania">Scania R / S / V8 & Metrolink</Link>
-            <Link href="/brands#man">MAN TGX, TGS & Lion&apos;s Coach</Link>
-            <Link href="/parts?category=brakes">Bremskerl Germany Brake Pads</Link>
+            <div className="footer__col-title">European &amp; Global Brands</div>
+            <Link href="/brands#volvo">Volvo Trucks, Buses &amp; Penta</Link>
+            <Link href="/brands#mercedes">Mercedes Actros, Axor &amp; Arocs</Link>
+            <Link href="/brands#scania">Scania R / S / V8 &amp; Metrolink</Link>
+            <Link href="/brands#man">MAN TGX, TGS &amp; Lion&apos;s Coach</Link>
+            <Link href="/exports">Mitsubishi FUSO Export Parts</Link>
           </div>
 
           <div className="footer__col footer__col--wide">

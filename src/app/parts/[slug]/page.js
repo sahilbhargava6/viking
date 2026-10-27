@@ -7,7 +7,6 @@ import { PARTS, BRANDS, CATEGORIES } from "@/data/partsData";
 import { useRfq } from "@/context/RfqContext";
 import QuoteModal from "@/components/QuoteModal";
 import TickerBar from "@/components/TickerBar";
-import TelemetryBar from "@/components/TelemetryBar";
 
 function PartDetailContent({ params }) {
   const unwrappedParams = use(params);
@@ -56,8 +55,76 @@ function PartDetailContent({ params }) {
     addToBasket(part, quantity);
   };
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: part.title,
+    image: part.image ? `https://vikingeuroparts.com${part.image}` : "https://vikingeuroparts.com/images/logo.png",
+    description: `${part.title} for ${part.brandCompatibility.join(", ")}. OEM Reference: ${part.oemRef}. Condition: ${part.condition}. Supplied by Viking Tradelinks Since 1969.`,
+    sku: part.id,
+    mpn: part.oemRef,
+    brand: {
+      "@type": "Brand",
+      name: part.supplier || "Viking Certified OEM",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `https://vikingeuroparts.com/parts/${part.id}`,
+      priceCurrency: "INR",
+      price: part.priceRange.replace(/[^0-9]/g, "") || "0",
+      priceValidUntil: "2027-12-31",
+      availability: "https://schema.org/InStock",
+      itemCondition: part.condition.toLowerCase().includes("used")
+        ? "https://schema.org/UsedCondition"
+        : "https://schema.org/NewCondition",
+      seller: {
+        "@type": "Organization",
+        name: "Viking Tradelinks",
+      },
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://vikingeuroparts.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Parts Catalogue",
+        item: "https://vikingeuroparts.com/parts",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: catObj?.name || part.category,
+        item: `https://vikingeuroparts.com/parts?category=${part.category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: part.title,
+        item: `https://vikingeuroparts.com/parts/${part.id}`,
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Breadcrumb Trail */}
       <div style={{ background: "var(--ink)", color: "var(--base)", padding: "0.8rem 0", borderBottom: "1px solid #333", fontSize: "0.75rem", fontFamily: "var(--font-jetbrains-mono), monospace" }}>
         <div className="container" style={{ display: "flex", gap: "0.6rem", alignItems: "center", flexWrap: "wrap" }}>
@@ -404,7 +471,6 @@ function PartDetailContent({ params }) {
         </section>
       )}
 
-      <TelemetryBar />
       <TickerBar />
 
       <QuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} defaultPart={part} />

@@ -49,7 +49,7 @@ export default function FloatingConsulting() {
         title="Access Volvo IMPACT, MB EPC, Scania Multi, MAN Mantis & AI Technical Support"
       >
         <span className="dot" aria-hidden="true"></span>
-        <span style={{ color: "var(--safety)" }}>⚡ DEALER EPC</span>
+        <span style={{ color: "var(--gold)" }}>⚡ DEALER EPC</span>
         <span style={{ opacity: 0.85 }}>& AI SUPPORT</span>
       </button>
 

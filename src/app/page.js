@@ -10,6 +10,8 @@ import QuoteModal from "@/components/QuoteModal";
 import VinLookup from "@/components/VinLookup";
 import TruckExplosionDiagram from "@/components/TruckExplosionDiagram";
 import DownloadCatalogues from "@/components/DownloadCatalogues";
+import BrandMarquee from "@/components/BrandMarquee";
+import VolvoSpotlight from "@/components/VolvoSpotlight";
 import {
   BRANDS,
   CATEGORIES,
@@ -47,8 +49,13 @@ export default function Home() {
         }}
       >
         <div className="hero__grid hero__grid--dense" aria-hidden="true"></div>
-        <div className="hero__label">
-          A VIKING GROUP COMPANY — EST. 1969
+        <div className="hero__badges-row">
+          <div className="hero__label">
+            A VIKING GROUP COMPANY — EST. 1969
+          </div>
+          <div className="hero__label--volvo">
+            🇸🇪 #1 VOLVO TRUCK, BUS &amp; PENTA SPECIALIST
+          </div>
         </div>
 
         {/* Company Name Big */}
@@ -63,46 +70,49 @@ export default function Home() {
         <div className="hero__slogan">
           Global Automotive Solutions
           <span className="hero__slogan-sub">
-            — Heavy European Specialist for Trucks, Buses, Construction & Mining, Marine
+            — Heavy European Specialist for Trucks, Buses, Construction &amp; Mining, Marine
           </span>
         </div>
 
         <div className="hero__bottom">
-          <div style={{ background: "rgba(255, 255, 255, 0.92)", backdropFilter: "blur(8px)", padding: "1.4rem 1.8rem", border: "var(--border)", boxShadow: "var(--shadow-sm)", maxWidth: "620px" }}>
-            <p className="hero__desc" style={{ fontSize: "1.02rem", lineHeight: "1.8", opacity: 0.95, color: "#000" }}>
-              European commercial specialist in <strong>MAN, Mercedes-Benz, Scania & VOLVO</strong> since 1969.
-              Supplying precision OEM replacement parts and certified dismantled components backed by <strong>Dealer EPC Software & AI Support</strong>.
+          <div className="hero__content-card">
+            <p className="hero__desc">
+              European commercial specialist in <strong>MAN, Mercedes-Benz, Scania &amp; VOLVO</strong> since 1969.
+              Supplying precision OEM replacement parts and certified dismantled components backed by <strong>Dealer EPC Software &amp; AI Support</strong>.
             </p>
-            <div style={{ marginTop: "1.4rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <div className="hero__actions">
               <button className="btn btn--primary" onClick={() => setIsModalOpen(true)}>
                 Inquire Part Quote
               </button>
+              <Link href="/parts?brand=volvo" className="btn btn--dark btn--volvo-highlight">
+                <span>🇸🇪 Volvo Parts Hub</span>
+              </Link>
               <Link href="/parts" className="btn btn--ghost">
-                Explore European Parts (15,000+)
+                All 15,000+ Parts
               </Link>
             </div>
           </div>
 
-          <div className="hero__stats" style={{ background: "rgba(255, 255, 255, 0.92)", backdropFilter: "blur(8px)", padding: "1.4rem 2rem", border: "var(--border)", boxShadow: "var(--shadow-sm)" }}>
-            <div>
+          <div className="hero__stats">
+            <div className="hero__stat-item">
               <div className="hero__stat-num">
                 55<span className="accent">+</span>
               </div>
               <div className="hero__stat-label">Years of Heritage (1969)</div>
             </div>
-            <div>
+            <div className="hero__stat-item">
               <div className="hero__stat-num">
                 15K<span className="accent">+</span>
               </div>
               <div className="hero__stat-label">European Items in Stock</div>
             </div>
-            <div>
+            <div className="hero__stat-item">
               <div className="hero__stat-num">
                 24<span className="accent">H</span>
               </div>
               <div className="hero__stat-label">Domestic Dispatch</div>
             </div>
-            <div>
+            <div className="hero__stat-item">
               <div className="hero__stat-num">
                 7<span className="accent">D</span>
               </div>
@@ -112,23 +122,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== LIVE TELEMETRY STRIP ====== */}
-      <TelemetryBar />
+      {/* ====== 2-WAY OPPOSITE DIRECTION BRAND LOGO MARQUEE ====== */}
+      <BrandMarquee />
 
       {/* ====== ABOUT US (VIKING GROUP SINCE 1969) ====== */}
       <section className="section" id="about">
         <div className="container">
-          <div
-            className="bento-card"
-            style={{
-              padding: "clamp(2rem, 4vw, 4rem)",
-              display: "grid",
-              gridTemplateColumns: "repeat(12, 1fr)",
-              gap: "var(--gap)",
-              alignItems: "center",
-            }}
-          >
-            <div style={{ gridColumn: "span 6" }}>
+          <div className="bento-card bento-grid--2col">
+            <div className="bento-col-half">
               <div
                 style={{
                   border: "var(--border)",
@@ -146,11 +147,11 @@ export default function Home() {
               <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem", flexWrap: "wrap" }}>
                 <span className="tag tag--filled">SINCE 1969</span>
                 <span className="tag tag--safety">DOMESTIC 24H / GLOBAL 7D</span>
-                <span className="tag tag--blue">DEALER EPC & AI SUPPORT</span>
+                <span className="tag tag--blue">DEALER EPC &amp; AI SUPPORT</span>
               </div>
             </div>
 
-            <div style={{ gridColumn: "span 6" }}>
+            <div className="bento-col-half">
               <div className="section__eyebrow">// A VIKING GROUP ENTERPRISE</div>
               <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", marginBottom: "1rem" }}>
                 About Viking Tradelinks<span className="accent">.</span>
@@ -172,17 +173,17 @@ export default function Home() {
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.92rem", fontWeight: 700 }}>
                   <span style={{ color: "var(--safety)", fontSize: "1.2rem" }}>✓</span>
-                  <span>Official dealer EPC software (Volvo IMPACT, MB EPC, Scania Multi, MAN Mantis) & AI support</span>
+                  <span>Official dealer EPC software (Volvo IMPACT, MB EPC, Scania Multi, MAN Mantis) &amp; AI support</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "0.92rem", fontWeight: 700 }}>
                   <span style={{ color: "var(--safety)", fontSize: "1.2rem" }}>✓</span>
-                  <span>24 months warranty on brand new parts & tested dismantled components with fitment trial</span>
+                  <span>24 months warranty on brand new parts &amp; tested dismantled components with fitment trial</span>
                 </div>
               </div>
 
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                 <Link href="/facilities" className="btn btn--primary btn--sm">
-                  View Warehouses & Testing Lab
+                  View Warehouses &amp; Testing Lab
                 </Link>
                 <a href="tel:+919702666664" className="btn btn--ghost btn--sm">
                   Direct Line: +91 9702666664
@@ -192,6 +193,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ====== VOLVO COMMERCIAL & PENTA SPECIALIZATION HUB ====== */}
+      <VolvoSpotlight />
 
       {/* ====== OPERATIONAL SECTORS: TRUCK, BUS, MINING, MARINE ====== */}
       <section className="section section--surface" id="sectors">
@@ -233,6 +237,140 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ====== EUROPEAN TRUCKS SHOWCASE (truck_banner.jpeg) ====== */}
+      <section className="section" style={{ borderTop: "4px solid var(--burgundy)", borderBottom: "4px solid var(--burgundy)", background: "var(--grey-900)", color: "#FFF" }}>
+        <div className="container">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
+            <div>
+              <div className="section__eyebrow" style={{ color: "var(--gold)" }}>// HEAVY VEHICLE DIVISION</div>
+              <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", color: "#FFF", margin: 0 }}>
+                Leading European Truck Fleets<span className="accent">.</span>
+              </h2>
+            </div>
+            <Link href="/trucks" className="btn btn--primary">
+              Explore Trucks Page (Volvo • MAN • MB • Renault) →
+            </Link>
+          </div>
+
+          <div style={{ border: "3px solid var(--gold)", boxShadow: "8px 8px 0px rgba(0,0,0,0.4)", overflow: "hidden", position: "relative", background: "var(--grey-900)" }}>
+            <img
+              src="/images/truck_banner_hd.jpeg"
+              alt="Leading European Brands Built For Your Business - Volvo, MAN, Mercedes-Benz, Renault"
+              style={{
+                width: "100%",
+                height: "auto",
+                aspectRatio: "16 / 9",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+            <div style={{ background: "var(--grey-800)", padding: "1.2rem 1.6rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem", borderTop: "2px solid var(--gold)" }}>
+              <div style={{ fontSize: "0.9rem", color: "#FFF" }}>
+                <strong>Volvo FH/FM • Mercedes Actros/Arocs • MAN TGX/TGS • Renault T/K-Series • Scania V8</strong>
+              </div>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <span className="tag tag--safety">DOMESTIC 24H DISPATCH</span>
+                <span className="tag tag--gold" style={{ background: "var(--gold)", color: "#14171E", fontWeight: 800 }}>DEALER EPC SOFTWARE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== ELECTRIC BUS STAND & EV FLEET SHOWCASE (evbuses.jpeg) ====== */}
+      <section className="section" style={{ background: "var(--surface)", borderBottom: "4px solid var(--gold)" }}>
+        <div className="container">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
+            <div>
+              <div className="section__eyebrow" style={{ color: "#059669" }}>// ZERO-EMISSION FLEET INTEGRATION</div>
+              <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", margin: 0 }}>
+                Leading Companies of Electric Bus Stand<span className="accent" style={{ color: "var(--burgundy)" }}>.</span>
+              </h2>
+            </div>
+            <Link href="/ev" className="btn btn--secondary" style={{ border: "2px solid var(--grey-300)", background: "#FFFFFF", color: "var(--ink)" }}>
+              View Electric Bus &amp; Stand Division →
+            </Link>
+          </div>
+
+          <div style={{ border: "2px solid #059669", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden" }}>
+            <div style={{ background: "var(--grey-100)", padding: "1rem 1.5rem", borderBottom: "1px solid var(--grey-300)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+              <span className="tag tag--safety" style={{ background: "#059669", color: "#FFFFFF", fontWeight: 800 }}>
+                ⚡ ELECTRIC BUS STAND &amp; OEM PARTNERS
+              </span>
+              <span style={{ color: "var(--ink)", fontSize: "0.8rem", fontFamily: "var(--font-jetbrains-mono)", fontWeight: 600 }}>
+                JBM GROUP • OLECTRA • PMI ELECTRO • SWITCH MOBILITY • TATA MOTORS
+              </span>
+            </div>
+            <div style={{ padding: "1.5rem", background: "#FFF", textAlign: "center" }}>
+              <img
+                src="/images/evbuses.jpeg"
+                alt="Leading Companies of Electric Bus Stand: JBM Group, Olectra, PMI, SWITCH, TATA"
+                style={{ maxWidth: "800px", width: "100%", height: "auto", margin: "0 auto", display: "block", objectFit: "contain" }}
+              />
+            </div>
+            <div style={{ background: "var(--grey-50)", padding: "1rem 1.5rem", color: "var(--ink-light)", fontSize: "0.85rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", borderTop: "1px solid var(--grey-300)" }}>
+              <span>Pantograph charging stand contacts, regenerative brake pads, and thermal coolant loops in stock.</span>
+              <Link href="/ev" style={{ color: "var(--burgundy)", fontWeight: 700, textDecoration: "underline" }}>
+                Explore EV Bus Components →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== EXPORTS OF INDIAN TRUCK & BUS BRANDS & FUSO (Exports...jpeg & FUSO.jpeg) ====== */}
+      <section className="section" style={{ borderBottom: "4px solid var(--gold)" }}>
+        <div className="container">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
+            <div>
+              <div className="section__eyebrow" style={{ color: "var(--burgundy)" }}>// GLOBAL SUPPLY DIVISION</div>
+              <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", margin: 0 }}>
+                Exports of Indian Truck &amp; Bus Brands &amp; FUSO<span className="accent" style={{ color: "var(--burgundy)" }}>.</span>
+              </h2>
+            </div>
+            <Link href="/exports" className="btn btn--primary">
+              View Global Export Program (45+ Countries) →
+            </Link>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))", gap: "2rem" }}>
+            <div style={{ border: "2px solid var(--grey-300)", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+              <div style={{ background: "var(--burgundy)", padding: "0.8rem 1.2rem", color: "#FFF", fontSize: "0.8rem", fontWeight: 700, display: "flex", justifyContent: "space-between" }}>
+                <span>TOP TRUCK BRANDS IN INDIA</span>
+                <span style={{ color: "var(--gold)" }}>BRANDS COLLAGE</span>
+              </div>
+              <div style={{ padding: "1.2rem", flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img
+                  src="/images/indian-truck-brands-collage.png"
+                  alt="Indian Truck Brands Collage: Mahindra, Eicher, BharatBenz, Volvo, Ashok Leyland, Tata Motors"
+                  style={{ maxHeight: "320px", width: "100%", objectFit: "contain", display: "block" }}
+                />
+              </div>
+              <div style={{ padding: "0.8rem 1.2rem", background: "var(--surface)", borderTop: "1px solid #DDD", fontSize: "0.8rem", color: "#444" }}>
+                Mahindra, Eicher, BharatBenz, Volvo India, Ashok Leyland, Tata Motors spare parts exported worldwide.
+              </div>
+            </div>
+
+            <div style={{ border: "2px solid var(--gold)", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+              <div style={{ background: "var(--burgundy)", padding: "0.8rem 1.2rem", color: "#FFF", fontSize: "0.8rem", fontWeight: 700, display: "flex", justifyContent: "space-between" }}>
+                <span>MITSUBISHI FUSO &amp; COMMERCIAL BRANDS</span>
+                <span style={{ color: "var(--gold)" }}>BRANDS COLLAGE</span>
+              </div>
+              <div style={{ padding: "1.2rem", flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img
+                  src="/images/fuso-truck-brands-collage.png"
+                  alt="Mitsubishi FUSO and Truck Brands Collage: FUSO, SML Isuzu, MAN, Force Motors, AMW, Daimler Truck"
+                  style={{ maxHeight: "320px", width: "100%", objectFit: "contain", display: "block" }}
+                />
+              </div>
+              <div style={{ padding: "0.8rem 1.2rem", background: "var(--surface)", borderTop: "1px solid #DDD", fontSize: "0.8rem", color: "#444" }}>
+                Full export supply for Mitsubishi FUSO Canter, Fighter, Super Great, FJ/FZ, and Indian commercial vehicles.
+              </div>
+            </div>
           </div>
         </div>
       </section>

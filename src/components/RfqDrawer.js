@@ -135,7 +135,7 @@ export default function RfqDrawer() {
                   </span>
                   <button
                     onClick={clearBasket}
-                    style={{ background: "none", border: "none", fontSize: "0.7rem", color: "#FF3E00", cursor: "pointer", textDecoration: "underline" }}
+                    style={{ background: "none", border: "none", fontSize: "0.7rem", color: "var(--burgundy)", cursor: "pointer", textDecoration: "underline" }}
                   >
                     Clear All
                   </button>

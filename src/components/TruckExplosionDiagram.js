@@ -157,15 +157,15 @@ export default function TruckExplosionDiagram() {
 
               {/* Wheels */}
               {/* Front Wheel */}
-              <circle cx="190" cy="225" r="42" fill="#111" stroke={activeSystem === "brakes" ? "#FF3E00" : "#555"} strokeWidth="4" />
+              <circle cx="190" cy="225" r="42" fill="#111" stroke={activeSystem === "brakes" ? "#D4AF37" : "#555"} strokeWidth="4" />
               <circle cx="190" cy="225" r="22" fill="#222" stroke="#777" strokeWidth="2" />
 
               {/* Rear Bogie Wheel 1 */}
-              <circle cx="680" cy="225" r="42" fill="#111" stroke={activeSystem === "suspension" || activeSystem === "brakes" ? "#FF3E00" : "#555"} strokeWidth="4" />
+              <circle cx="680" cy="225" r="42" fill="#111" stroke={activeSystem === "suspension" || activeSystem === "brakes" ? "#D4AF37" : "#555"} strokeWidth="4" />
               <circle cx="680" cy="225" r="22" fill="#222" stroke="#777" strokeWidth="2" />
 
               {/* Rear Bogie Wheel 2 */}
-              <circle cx="780" cy="225" r="42" fill="#111" stroke={activeSystem === "suspension" || activeSystem === "brakes" ? "#FF3E00" : "#555"} strokeWidth="4" />
+              <circle cx="780" cy="225" r="42" fill="#111" stroke={activeSystem === "suspension" || activeSystem === "brakes" ? "#D4AF37" : "#555"} strokeWidth="4" />
               <circle cx="780" cy="225" r="22" fill="#222" stroke="#777" strokeWidth="2" />
 
               {/* Engine Block Graphic */}
@@ -174,11 +174,11 @@ export default function TruckExplosionDiagram() {
                 y="140"
                 width="90"
                 height="50"
-                fill={activeSystem === "engine" ? "rgba(255,62,0,0.3)" : "rgba(255,255,255,0.06)"}
-                stroke={activeSystem === "engine" ? "#FF3E00" : "#555"}
+                fill={activeSystem === "engine" ? "rgba(212,175,55,0.3)" : "rgba(255,255,255,0.06)"}
+                stroke={activeSystem === "engine" ? "#D4AF37" : "#555"}
                 strokeWidth="2"
               />
-              <text x="215" y="170" fill={activeSystem === "engine" ? "#FF3E00" : "#888"} fontSize="11" fontFamily="monospace" fontWeight="bold">ENGINE</text>
+              <text x="215" y="170" fill={activeSystem === "engine" ? "#D4AF37" : "#888"} fontSize="11" fontFamily="monospace" fontWeight="bold">ENGINE</text>
 
               {/* Transmission Gearbox */}
               <rect
@@ -186,11 +186,11 @@ export default function TruckExplosionDiagram() {
                 y="150"
                 width="70"
                 height="40"
-                fill={activeSystem === "transmission" ? "rgba(255,62,0,0.3)" : "rgba(255,255,255,0.06)"}
-                stroke={activeSystem === "transmission" ? "#FF3E00" : "#555"}
+                fill={activeSystem === "transmission" ? "rgba(212,175,55,0.3)" : "rgba(255,255,255,0.06)"}
+                stroke={activeSystem === "transmission" ? "#D4AF37" : "#555"}
                 strokeWidth="2"
               />
-              <text x="320" y="175" fill={activeSystem === "transmission" ? "#FF3E00" : "#888"} fontSize="10" fontFamily="monospace" fontWeight="bold">GEARBOX</text>
+              <text x="320" y="175" fill={activeSystem === "transmission" ? "#D4AF37" : "#888"} fontSize="10" fontFamily="monospace" fontWeight="bold">GEARBOX</text>
 
               {/* Driveshaft Propeller */}
               <line
@@ -198,7 +198,7 @@ export default function TruckExplosionDiagram() {
                 y1="170"
                 x2="660"
                 y2="210"
-                stroke={activeSystem === "drivetrain" ? "#FF3E00" : "#666"}
+                stroke={activeSystem === "drivetrain" ? "#D4AF37" : "#666"}
                 strokeWidth={activeSystem === "drivetrain" ? "5" : "3"}
               />
 
@@ -208,8 +208,8 @@ export default function TruckExplosionDiagram() {
                 y="120"
                 width="20"
                 height="65"
-                fill={activeSystem === "cooling" ? "rgba(255,62,0,0.4)" : "rgba(0,173,239,0.15)"}
-                stroke={activeSystem === "cooling" ? "#FF3E00" : "#00ADEF"}
+                fill={activeSystem === "cooling" ? "rgba(212,175,55,0.4)" : "rgba(0,173,239,0.15)"}
+                stroke={activeSystem === "cooling" ? "#D4AF37" : "#00ADEF"}
                 strokeWidth="2"
               />
 
@@ -219,8 +219,8 @@ export default function TruckExplosionDiagram() {
                 cy="175"
                 rx="15"
                 ry="22"
-                fill={activeSystem === "suspension" ? "rgba(255,62,0,0.4)" : "rgba(0,255,102,0.1)"}
-                stroke={activeSystem === "suspension" ? "#FF3E00" : "#00FF66"}
+                fill={activeSystem === "suspension" ? "rgba(212,175,55,0.4)" : "rgba(0,255,102,0.1)"}
+                stroke={activeSystem === "suspension" ? "#D4AF37" : "#00FF66"}
                 strokeWidth="2"
               />
               <ellipse
@@ -228,8 +228,8 @@ export default function TruckExplosionDiagram() {
                 cy="175"
                 rx="15"
                 ry="22"
-                fill={activeSystem === "suspension" ? "rgba(255,62,0,0.4)" : "rgba(0,255,102,0.1)"}
-                stroke={activeSystem === "suspension" ? "#FF3E00" : "#00FF66"}
+                fill={activeSystem === "suspension" ? "rgba(212,175,55,0.4)" : "rgba(0,255,102,0.1)"}
+                stroke={activeSystem === "suspension" ? "#D4AF37" : "#00FF66"}
                 strokeWidth="2"
               />
             </svg>

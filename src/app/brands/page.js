@@ -139,6 +139,42 @@ export default function BrandsPage() {
         </div>
       </section>
 
+      {/* ====== ADDITIONAL FLEET DIVISIONS ====== */}
+      <section className="section section--dark" style={{ borderTop: "4px solid var(--safety)" }}>
+        <div className="container">
+          <div className="section__eyebrow" style={{ color: "var(--safety)" }}>// SPECIALIZED FLEET DIVISIONS</div>
+          <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", color: "#FFF", marginBottom: "2rem" }}>
+            Explore Dedicated Fleet Programs<span className="accent">.</span>
+          </h2>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+            <Link href="/trucks" className="bento-card" style={{ background: "#111", border: "2px solid rgba(255,255,255,0.2)", padding: "1.8rem", color: "#FFF", textDecoration: "none" }}>
+              <span className="tag tag--safety" style={{ marginBottom: "0.8rem", display: "inline-block" }}>EUROPEAN TRUCKS</span>
+              <h3 style={{ fontSize: "1.3rem", color: "#FFF", marginBottom: "0.5rem" }}>Commercial Truck Fleets →</h3>
+              <p style={{ fontSize: "0.84rem", color: "rgba(255,255,255,0.7)", lineHeight: "1.6" }}>
+                Volvo FH/FM, Mercedes Actros/Arocs, MAN TGX, Renault T/K, and Scania V8 heavy haulage parts.
+              </p>
+            </Link>
+
+            <Link href="/ev" className="bento-card" style={{ background: "#111", border: "2px solid var(--term-green)", padding: "1.8rem", color: "#FFF", textDecoration: "none" }}>
+              <span className="tag tag--filled" style={{ background: "var(--term-green)", color: "#000", marginBottom: "0.8rem", display: "inline-block" }}>⚡ EV &amp; BUSES</span>
+              <h3 style={{ fontSize: "1.3rem", color: "#FFF", marginBottom: "0.5rem" }}>Leading Electric Bus Stand →</h3>
+              <p style={{ fontSize: "0.84rem", color: "rgba(255,255,255,0.7)", lineHeight: "1.6" }}>
+                JBM Group, Olectra, PMI, Switch Mobility, and Tata Motors electric bus and charging stand spares.
+              </p>
+            </Link>
+
+            <Link href="/exports" className="bento-card" style={{ background: "#111", border: "2px solid var(--safety)", padding: "1.8rem", color: "#FFF", textDecoration: "none" }}>
+              <span className="tag tag--safety" style={{ marginBottom: "0.8rem", display: "inline-block" }}>GLOBAL EXPORT</span>
+              <h3 style={{ fontSize: "1.3rem", color: "#FFF", marginBottom: "0.5rem" }}>Indian Brands &amp; FUSO →</h3>
+              <p style={{ fontSize: "0.84rem", color: "rgba(255,255,255,0.7)", lineHeight: "1.6" }}>
+                Tata, Ashok Leyland, BharatBenz, Mahindra, Eicher, and Mitsubishi FUSO global export programs.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <TickerBar />
     </>
   );
