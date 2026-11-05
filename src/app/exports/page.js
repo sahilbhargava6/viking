@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import TelemetryBar from "@/components/TelemetryBar";
+import YardGallery from "@/components/YardGallery";
 import { useRfq } from "@/context/RfqContext";
 
 export default function ExportsPage() {
@@ -302,6 +303,20 @@ export default function ExportsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ====== LOADING YARD GALLERY ====== */}
+      <section className="section" style={{ background: "var(--surface)", borderTop: "4px solid var(--ink)" }}>
+        <div className="container">
+          <div className="section__eyebrow">{"// FROM THE LOADING YARD"}</div>
+          <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", marginBottom: "1rem" }}>
+            Real Shipments, Packed &amp; Dispatched<span className="accent">.</span>
+          </h2>
+          <p style={{ maxWidth: "60ch", marginBottom: "2rem", color: "var(--ink-light)" }}>
+            Engines, cabs and radiators lashed into containers and trailers at our yard, ready for export. Tap any photo to view it full size.
+          </p>
+          <YardGallery />
         </div>
       </section>
 
