@@ -6,8 +6,8 @@ export default function manifest() {
       "A Viking Group Company Since 1969. Specialist supplier for Volvo, MAN, Mercedes-Benz, Scania & EV Commercial Fleet spare parts.",
     start_url: "/",
     display: "standalone",
-    background_color: "#EEF2F6",
-    theme_color: "#7A1528",
+    background_color: "#FFFFFF",
+    theme_color: "#FF3E00",
     orientation: "portrait-primary",
     icons: [
       {

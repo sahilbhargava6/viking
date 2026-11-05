@@ -274,7 +274,7 @@ export default function Home() {
               </div>
               <div style={{ display: "flex", gap: "0.5rem" }}>
                 <span className="tag tag--safety">DOMESTIC 24H DISPATCH</span>
-                <span className="tag tag--gold" style={{ background: "var(--gold)", color: "#14171E", fontWeight: 800 }}>DEALER EPC SOFTWARE</span>
+                <span className="tag tag--gold" style={{ background: "var(--gold)", color: "#000", fontWeight: 800 }}>DEALER EPC SOFTWARE</span>
               </div>
             </div>
           </div>
@@ -282,11 +282,11 @@ export default function Home() {
       </section>
 
       {/* ====== ELECTRIC BUS STAND & EV FLEET SHOWCASE (evbuses.jpeg) ====== */}
-      <section className="section" style={{ background: "var(--surface)", borderBottom: "4px solid var(--gold)" }}>
+      <section className="section" style={{ background: "var(--surface)", borderBottom: "4px solid var(--ink)" }}>
         <div className="container">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
             <div>
-              <div className="section__eyebrow" style={{ color: "#059669" }}>// ZERO-EMISSION FLEET INTEGRATION</div>
+              <div className="section__eyebrow" style={{ color: "var(--term-green)" }}>// ZERO-EMISSION FLEET INTEGRATION</div>
               <h2 className="section__title" style={{ fontSize: "var(--fs-h2)", margin: 0 }}>
                 Leading Companies of Electric Bus Stand<span className="accent" style={{ color: "var(--burgundy)" }}>.</span>
               </h2>
@@ -296,9 +296,9 @@ export default function Home() {
             </Link>
           </div>
 
-          <div style={{ border: "2px solid #059669", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden" }}>
+          <div style={{ border: "2px solid var(--term-green)", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden" }}>
             <div style={{ background: "var(--grey-100)", padding: "1rem 1.5rem", borderBottom: "1px solid var(--grey-300)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-              <span className="tag tag--safety" style={{ background: "#059669", color: "#FFFFFF", fontWeight: 800 }}>
+              <span className="tag tag--safety" style={{ background: "var(--term-green)", color: "#FFFFFF", fontWeight: 800 }}>
                 ⚡ ELECTRIC BUS STAND &amp; OEM PARTNERS
               </span>
               <span style={{ color: "var(--ink)", fontSize: "0.8rem", fontFamily: "var(--font-jetbrains-mono)", fontWeight: 600 }}>
@@ -323,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* ====== EXPORTS OF INDIAN TRUCK & BUS BRANDS & FUSO (Exports...jpeg & FUSO.jpeg) ====== */}
-      <section className="section" style={{ borderBottom: "4px solid var(--gold)" }}>
+      <section className="section" style={{ borderBottom: "4px solid var(--ink)" }}>
         <div className="container">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
             <div>
@@ -355,7 +355,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div style={{ border: "2px solid var(--gold)", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+            <div style={{ border: "2px solid var(--ink)", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden", display: "flex", flexDirection: "column" }}>
               <div style={{ background: "var(--burgundy)", padding: "0.8rem 1.2rem", color: "#FFF", fontSize: "0.8rem", fontWeight: 700, display: "flex", justifyContent: "space-between" }}>
                 <span>MITSUBISHI FUSO &amp; COMMERCIAL BRANDS</span>
                 <span style={{ color: "var(--gold)" }}>BRANDS COLLAGE</span>

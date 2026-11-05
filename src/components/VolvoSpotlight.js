@@ -74,13 +74,13 @@ export default function VolvoSpotlight() {
   const currentData = volvoCategories.find(c => c.id === activeTab) || volvoCategories[0];
 
   return (
-    <section className="section volvo-spotlight-section" id="volvo-specialization" style={{ background: "#14171E", color: "#FFFFFF", borderBottom: "4px solid var(--burgundy)" }}>
+    <section className="section volvo-spotlight-section" id="volvo-specialization" style={{ background: "#08080A", color: "#FFFFFF", borderBottom: "4px solid var(--burgundy)" }}>
       <div className="container">
         
         {/* Header Ribbon */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1.2rem", marginBottom: "2.5rem" }}>
           <div>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", background: "rgba(197, 160, 89, 0.12)", border: "1px solid var(--gold)", padding: "0.35rem 0.9rem", marginBottom: "0.8rem" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", background: "rgba(255, 170, 0, 0.12)", border: "1px solid var(--gold)", padding: "0.35rem 0.9rem", marginBottom: "0.8rem" }}>
               <span style={{ fontSize: "1rem" }}>🇸🇪</span>
               <span style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.76rem", fontWeight: 800, color: "var(--gold)", letterSpacing: "0.14em", textTransform: "uppercase" }}>
                 FLAGSHIP ENGINEERING SPECIALIZATION
@@ -115,7 +115,7 @@ export default function VolvoSpotlight() {
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
                 style={{
-                  background: isSelected ? "var(--burgundy)" : "#1C2029",
+                  background: isSelected ? "var(--burgundy)" : "#111",
                   color: isSelected ? "#FFFFFF" : "rgba(255,255,255,0.8)",
                   border: isSelected ? "3px solid var(--gold)" : "2px solid rgba(255,255,255,0.15)",
                   padding: "1.1rem 1.4rem",
@@ -203,7 +203,7 @@ export default function VolvoSpotlight() {
           </div>
 
           {/* Right Column: Fast-Moving SKUs & 1-Click RFQ Basket */}
-          <div className="volvo-detail-col-right" style={{ gridColumn: "span 5", background: "#11141C", border: "2px solid rgba(197,160,89,0.3)", padding: "1.5rem", boxShadow: "4px 4px 0px rgba(0,0,0,0.3)" }}>
+          <div className="volvo-detail-col-right" style={{ gridColumn: "span 5", background: "#111", border: "2px solid rgba(255,170,0,0.3)", padding: "1.5rem", boxShadow: "4px 4px 0px rgba(0,0,0,0.3)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(255,255,255,0.15)", paddingBottom: "0.8rem", marginBottom: "1rem" }}>
               <span style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.78rem", fontWeight: 800, color: "var(--gold)", letterSpacing: "0.1em" }}>
                 ⚡ FAST-MOVING VOLVO REPLACEMENTS

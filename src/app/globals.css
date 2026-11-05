@@ -12,69 +12,69 @@
 
 :root {
   /* ============================================================
-     VIKING TRADELINKS — PRESTIGE LIGHT GREY, BURGUNDY & GOLD
-     Modern European Fleet Corporate & Engineering Design System
-     Established in 1969 • Clean, Bright, Premium Aesthetic
+     PALETTE — restored from TemplateMo 619 Axis Industrial
+     White / black ink, high-vis safety orange, dark terminal
+     with green & amber readouts. Legacy burgundy/gold/grey
+     tokens are kept as aliases so every component follows.
      ============================================================ */
 
   /* Base & Inks */
   --base: #FFFFFF;
-  --ink: #1E232D;          /* Deep Slate / Charcoal Text (readable & sharp) */
-  --ink-light: #3D4452;
-  --ink-muted: #64748B;
+  --ink: #000000;
+  --ink-light: #222222;
+  --ink-muted: #737373;
 
-  /* Burgundy Hierarchy (Royal Bordeaux / Wine) */
-  --burgundy: #7A1528;     /* Rich Royal Burgundy - Primary Brand Accent */
-  --burgundy-dark: #520D1A; /* Deep Wine Bordeaux */
-  --burgundy-light: #9B1D35; /* Vibrant Wine Red for hovers & active states */
-  --burgundy-tint: rgba(122, 21, 40, 0.08);
+  /* Primary accent — safety orange (aliased as "burgundy") */
+  --burgundy: #FF3E00;
+  --burgundy-dark: #D63400;
+  --burgundy-light: #FF5A26;
+  --burgundy-tint: rgba(255, 62, 0, 0.08);
 
-  /* Gold Hierarchy (Prestige European Automotive & Since 1969 Heritage) */
-  --gold: #C5A059;         /* Warm European Heritage Gold */
-  --gold-rich: #D4AF37;    /* Classic Vivid Gold */
-  --gold-dark: #9E7418;    /* Antique Burnished Gold */
-  --gold-light: #F4E7BF;   /* Champagne Tint */
-  --gold-tint: rgba(197, 160, 89, 0.14);
+  /* Secondary accent — terminal amber (aliased as "gold") */
+  --gold: #FFAA00;
+  --gold-rich: #FFAA00;
+  --gold-dark: #C77F00;
+  --gold-light: #FFD27A;
+  --gold-tint: rgba(255, 170, 0, 0.14);
 
-  /* Map Legacy --safety to Burgundy for seamless global compatibility */
-  --safety: var(--burgundy);
-  --safety-dark: var(--burgundy-dark);
-  --viking-blue: #1E3A5F;
-  
-  /* Light Grey Scales (Clean, Modern, Sophisticated Titanium & Silver Grey) */
-  --grey-50: #F8FAFC;
-  --grey-100: #EEF2F6;      /* Primary Light Grey Page Background */
-  --grey-200: #E2E8F0;      /* Secondary Light Grey Surface */
-  --grey-300: #CBD5E1;      /* Crisp Border Grey */
-  --grey-400: #94A3B8;
-  --grey-500: #64748B;
-  --grey-600: #475569;
-  --grey-700: #334155;
-  --grey-800: #1E293B;
-  --grey-900: #0F172A;
+  --safety: #FF3E00;
+  --safety-dark: #D63400;
+  --viking-blue: #0E1B2E;
 
-  --muted: #64748B;
-  --surface: #EEF2F6;      /* Clean modern Light Grey */
-  --surface-tint: #E2E8F0;
-  --term-bg: #E8EEF5;      /* Light Technical Titanium Grey */
-  --term-green: #059669;   /* High-contrast Emerald Green on light grey */
-  --term-amber: var(--gold-dark);
-  --term-border: rgba(197, 160, 89, 0.35);
+  /* Neutral scale (warm template surfaces → near-black terminal) */
+  --grey-50: #FAFAF7;
+  --grey-100: #F5F5F0;
+  --grey-200: #EBEBE4;
+  --grey-300: #000000;      /* borders are solid ink in the template */
+  --grey-400: #888888;
+  --grey-500: #737373;
+  --grey-600: #555555;
+  --grey-700: #333333;
+  --grey-800: #111111;
+  --grey-900: #08080A;
 
-  /* Clean Refined Borders & Soft Ambient Shadows */
-  --border: 2px solid var(--grey-300);
+  --muted: #888888;
+  --surface: #F5F5F0;
+  --surface-tint: #EBEBE4;
+  --term-bg: #08080A;
+  --term-green: #00FF66;
+  --term-amber: #FFAA00;
+  --term-border: rgba(255, 255, 255, 0.12);
+
+  /* Borders & Shadows — hard ink offsets */
+  --border: 2px solid var(--ink);
   --border-strong: 2px solid var(--ink);
-  --border-thin: 1px solid var(--grey-300);
-  --border-gold: 2px solid var(--gold);
-  --border-burgundy: 2px solid var(--burgundy);
-  --border-hair: 1px solid rgba(0, 0, 0, 0.08);
-  --shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
-  --shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.06);
-  --shadow-safety: 4px 4px 0px var(--burgundy);
-  --shadow-gold: 4px 4px 0px var(--gold);
-  --shadow-hover: 6px 6px 0px var(--burgundy);
-  --shadow-safety-hover: 6px 6px 0px var(--burgundy);
-  --shadow-gold-hover: 6px 6px 0px var(--gold);
+  --border-thin: 1px solid var(--ink);
+  --border-gold: 2px solid var(--ink);
+  --border-burgundy: 2px solid var(--safety);
+  --border-hair: 1px solid rgba(0, 0, 0, 0.10);
+  --shadow: 6px 6px 0px var(--ink);
+  --shadow-sm: 3px 3px 0px var(--ink);
+  --shadow-safety: 6px 6px 0px var(--safety);
+  --shadow-gold: 6px 6px 0px var(--ink);
+  --shadow-hover: 3px 3px 0px var(--ink);
+  --shadow-safety-hover: 3px 3px 0px var(--safety);
+  --shadow-gold-hover: 3px 3px 0px var(--ink);
 
   /* Typography Scales - Refined & Balanced Industrial Hierarchy */
   --fs-hero: clamp(2.3rem, 5.8vw, 6.2rem);
@@ -455,7 +455,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   justify-content: center;
   flex-shrink: 0;
   padding: 3px;
-  box-shadow: 2px 2px 0px rgba(197, 160, 89, 0.4);
+  box-shadow: 2px 2px 0px rgba(255, 170, 0, 0.4);
 }
 
 .header__sep {
@@ -510,7 +510,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* Distinct high-visibility styling for Volvo Specialist Hub */
 .header__nav a.nav-link--volvo {
-  background: rgba(197, 160, 89, 0.16);
+  background: rgba(255, 170, 0, 0.16);
   color: var(--gold-light);
   font-weight: 800;
   border-bottom: 3px solid var(--gold);
@@ -772,7 +772,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--gold-dark);
+  color: var(--safety);
   margin-bottom: 0.9rem;
   display: inline-flex;
   align-items: center;
@@ -785,7 +785,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   content: '';
   width: 44px;
   height: 4px;
-  background: var(--gold);
+  background: var(--safety);
 }
 
 .hero__title {
@@ -1182,9 +1182,9 @@ h1, h2, h3, h4, h5, h6, .font-display {
 /* Terminal Log */
 .log {
   background: var(--term-bg);
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--safety);
   overflow: hidden;
-  color: var(--ink);
+  color: #FFFFFF;
 }
 
 .log__header {
@@ -1192,14 +1192,14 @@ h1, h2, h3, h4, h5, h6, .font-display {
   align-items: center;
   justify-content: space-between;
   padding: 0.7rem clamp(1rem, 3vw, 3rem);
-  border-bottom: 1px solid var(--grey-300);
+  border-bottom: 1px solid var(--term-border);
 }
 
 .log__header-title {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--burgundy);
+  color: var(--term-green);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -1211,14 +1211,14 @@ h1, h2, h3, h4, h5, h6, .font-display {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--burgundy);
+  background: var(--term-green);
   animation: pulse 2s ease-in-out infinite;
 }
 
 .log__header-status {
   font-size: 0.68rem;
   letter-spacing: 0.1em;
-  color: var(--ink-muted);
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
 }
 
@@ -1250,18 +1250,18 @@ h1, h2, h3, h4, h5, h6, .font-display {
   letter-spacing: 0.04em;
   white-space: nowrap;
   padding: 0.35rem 1.6rem;
-  color: #334155;
+  color: rgba(255, 255, 255, 0.6);
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.log__entry-time { color: var(--ink-muted); font-size: 0.62rem; }
+.log__entry-time { color: rgba(255, 255, 255, 0.25); font-size: 0.62rem; }
 .log__entry-tag { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.15em 0.55em; border: 1px solid; }
-.log-ok   { color: #047857; border-color: rgba(4, 120, 87, 0.4); }
-.log-warn { color: var(--gold-dark); border-color: rgba(197, 160, 89, 0.4); }
-.log-sys  { color: var(--burgundy);     border-color: rgba(122, 21, 40, 0.4); }
-.log__entry-msg { color: #1E232D; font-weight: 500; }
+.log-ok   { color: var(--term-green); border-color: rgba(0, 255, 102, 0.3); }
+.log-warn { color: var(--term-amber); border-color: rgba(255, 170, 0, 0.3); }
+.log-sys  { color: var(--safety);     border-color: rgba(255, 62, 0, 0.3); }
+.log__entry-msg { color: rgba(255, 255, 255, 0.55); font-weight: 500; }
 
 /* Interactive Parts Finder & Catalog */
 .part-finder {
@@ -1895,7 +1895,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 0;
     justify-content: flex-start;
-    background: #11141C;
+    background: #111111;
     color: #FFFFFF;
   }
 
