@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitLead, whatsappUrl, LeadResult, HoneypotField } from "@/lib/leads";
 
 export default function QuoteModal({ isOpen, onClose, initialPart = null }) {
   const [formData, setFormData] = useState({
@@ -12,20 +13,34 @@ export default function QuoteModal({ isOpen, onClose, initialPart = null }) {
     vinOrOem: initialPart?.oemRef || "",
     partDescription: initialPart ? `${initialPart.id} - ${initialPart.title}` : "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  // idle | sending | sent | failed
+  const [status, setStatus] = useState("idle");
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const formEl = e.currentTarget;
+    setStatus("sending");
+    const ok = await submitLead(
+      "quote",
+      {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        make: formData.truckMake,
+        reference: formData.vinOrOem,
+        message: formData.partDescription,
+        modelYear: formData.modelYear,
+      },
+      formEl
+    );
+    setStatus(ok ? "sent" : "failed");
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(
-      `Hello Viking Tradelinks! I need an urgent quote.\nMake: ${formData.truckMake}\nPart: ${formData.partDescription || "Heavy Duty Spare Part"}\nOEM/VIN: ${formData.vinOrOem}\nName: ${formData.name || "Fleet Manager"}`
-    );
-    window.open(`https://wa.me/919702666664?text=${text}`, "_blank");
+    const text = `Hello Viking Tradelinks! I need an urgent quote.\nMake: ${formData.truckMake}\nPart: ${formData.partDescription || "Heavy Duty Spare Part"}\nOEM/VIN: ${formData.vinOrOem}\nName: ${formData.name || "Fleet Manager"}`;
+    window.open(whatsappUrl(text), "_blank");
   };
 
   return (
@@ -43,26 +58,18 @@ export default function QuoteModal({ isOpen, onClose, initialPart = null }) {
           Instant response within 15 minutes. Dispatch direct from Mumbai showroom or Khalapur heavy yard.
         </p>
 
-        {submitted ? (
-          <div style={{ background: "var(--surface)", border: "var(--border)", padding: "1.5rem", textAlign: "center" }}>
-            <div style={{ color: "var(--safety)", fontWeight: 700, fontSize: "1.2rem", marginBottom: "0.5rem" }}>
-              ✓ INQUIRY LOGGED INTO KHALAPUR DISPATCH SYSTEM
-            </div>
-            <p style={{ fontSize: "0.85rem", opacity: 0.8, marginBottom: "1rem" }}>
-              Our commercial parts team is reviewing fitment tolerances and availability. We will call you back at{" "}
-              <strong>{formData.phone || "+91 9702666664"}</strong> shortly.
-            </p>
-            <div style={{ display: "flex", gap: "0.8rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <button className="btn btn--primary btn--sm" onClick={handleWhatsApp}>
-                Open WhatsApp Direct (+91 9702666664)
-              </button>
-              <button className="btn btn--ghost btn--sm" onClick={() => { setSubmitted(false); onClose(); }}>
-                Close Window
-              </button>
-            </div>
-          </div>
+        {status === "sent" || status === "failed" ? (
+          <LeadResult
+            status={status}
+            phone={formData.phone}
+            onWhatsApp={handleWhatsApp}
+            onReset={() => { setStatus("idle"); onClose(); }}
+            resetLabel="Close Window"
+            compact
+          />
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <HoneypotField />
             <div>
               <label style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700, display: "block", marginBottom: "0.3rem" }}>
                 Your Name / Fleet Entity *
@@ -150,8 +157,8 @@ export default function QuoteModal({ isOpen, onClose, initialPart = null }) {
             </div>
 
             <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem", flexWrap: "wrap" }}>
-              <button type="submit" className="btn btn--primary" style={{ flex: 1 }}>
-                Submit For 15-Min Quote
+              <button type="submit" className="btn btn--primary" style={{ flex: 1 }} disabled={status === "sending"}>
+                {status === "sending" ? "Sending…" : "Submit Quote Request"}
               </button>
               <button type="button" className="btn btn--ghost" onClick={handleWhatsApp}>
                 Instant WhatsApp Quote

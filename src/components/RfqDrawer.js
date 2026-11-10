@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { useRfq } from "@/context/RfqContext";
+import { submitLead, whatsappUrl, HoneypotField } from "@/lib/leads";
 
 export default function RfqDrawer() {
   const { basket, removeFromBasket, updateQuantity, clearBasket, isDrawerOpen, setIsDrawerOpen, totalItems } = useRfq();
@@ -11,13 +12,30 @@ export default function RfqDrawer() {
   const [phone, setPhone] = useState("");
   const [truckVin, setTruckVin] = useState("");
   const [notes, setNotes] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  // null | "whatsapp" | "sending" | "sent" | "failed"
+  const [status, setStatus] = useState(null);
+  const formRef = useRef(null);
 
   if (!isDrawerOpen) return null;
 
+  const leadFields = (itemsList) => ({
+    name: clientName,
+    company: fleetCompany,
+    phone,
+    reference: truckVin,
+    message: notes,
+    items: itemsList,
+    totalQuantity: String(totalItems),
+  });
+
+  const itemsText = () =>
+    basket.map((item, idx) => `${idx + 1}. [${item.id}] ${item.title} | OEM ${item.oemRef} | ${item.condition} | Qty ${item.quantity}`).join("\n");
+
+  // Primary: open WhatsApp (must happen inside the click) and also record the RFQ.
   const handleSendWhatsApp = (e) => {
     e.preventDefault();
     if (basket.length === 0) return;
+    const formEl = e.currentTarget;
 
     let itemsList = basket
       .map(
@@ -35,9 +53,18 @@ export default function RfqDrawer() {
       `\n*REQUESTED ITEMS (${totalItems} total):*\n${itemsList}\n` +
       `Please provide immediate stock availability, tier pricing, and freight timeline to our depot.`;
 
-    const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/919702666664?text=${encoded}`, "_blank");
-    setSubmitted(true);
+    window.open(whatsappUrl(message), "_blank");
+    submitLead("rfq", { ...leadFields(itemsText()), sentVia: "WhatsApp" }, formEl);
+    setStatus("whatsapp");
+  };
+
+  // Secondary: for buyers without WhatsApp, send the RFQ by email only.
+  const handleSendOnline = async () => {
+    const formEl = formRef.current;
+    if (basket.length === 0 || !formEl?.reportValidity()) return;
+    setStatus("sending");
+    const ok = await submitLead("rfq", { ...leadFields(itemsText()), sentVia: "Website (email)" }, formEl);
+    setStatus(ok ? "sent" : "failed");
   };
 
   const handlePrintQuote = () => {
@@ -247,7 +274,8 @@ export default function RfqDrawer() {
               </div>
 
               {/* Fleet & Procurement Details Form */}
-              <form onSubmit={handleSendWhatsApp} style={{ borderTop: "2px solid #000", paddingTop: "1.2rem" }}>
+              <form ref={formRef} onSubmit={handleSendWhatsApp} style={{ borderTop: "2px solid #000", paddingTop: "1.2rem" }}>
+                <HoneypotField />
                 <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--safety)", marginBottom: "0.8rem", textTransform: "uppercase" }}>
                   Fleet Logistics Dispatch Contact
                 </div>
@@ -302,19 +330,28 @@ export default function RfqDrawer() {
                   />
                 </div>
 
-                {submitted && (
+                {status && status !== "sending" && (
                   <div
+                    role="status"
                     style={{
-                      background: "rgba(0, 255, 102, 0.15)",
-                      border: "1px solid var(--term-green)",
+                      background: status === "failed" ? "var(--burgundy-tint)" : "rgba(5, 150, 105, 0.1)",
+                      border: `1px solid ${status === "failed" ? "var(--safety)" : "#059669"}`,
                       padding: "0.8rem",
-                      fontSize: "0.75rem",
-                      color: "var(--term-green)",
+                      fontSize: "0.78rem",
+                      color: status === "failed" ? "var(--ink)" : "#065F46",
                       marginBottom: "1rem",
                       fontWeight: 700,
+                      lineHeight: 1.5,
                     }}
                   >
-                    ✓ WhatsApp RFQ Generated! Viking Tradelinks sales desk is reviewing your {totalItems} items.
+                    {status === "whatsapp" && <>✓ WhatsApp opened with your {totalItems} items. A copy of this RFQ has also been sent to our sales desk.</>}
+                    {status === "sent" && <>✓ RFQ received ({totalItems} items). Our sales desk will contact you at {phone} shortly.</>}
+                    {status === "failed" && (
+                      <>
+                        We couldn’t send the RFQ online. Please use the WhatsApp button above, or email it to{" "}
+                        <a href="mailto:schumi.india@gmail.com" style={{ textDecoration: "underline" }}>schumi.india@gmail.com</a>.
+                      </>
+                    )}
                   </div>
                 )}
 
@@ -337,6 +374,16 @@ export default function RfqDrawer() {
                   >
                     <span>Transmit RFQ to WhatsApp Desk ({totalItems} Items)</span>
                     <span>→</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleSendOnline}
+                    disabled={status === "sending"}
+                    className="btn btn--ghost"
+                    style={{ width: "100%", padding: "0.7rem 1rem", fontSize: "0.78rem" }}
+                  >
+                    {status === "sending" ? "Sending…" : "✉ No WhatsApp? Send RFQ by email instead"}
                   </button>
 
                   <button

@@ -512,28 +512,24 @@ export const TESTIMONIALS = [
     role: "Fleet Maintenance Division (MAN, Mercedes, Scania & Volvo Coaches & Haulers)",
     rating: 5,
     text: "We would like to mention our appreciation of spare parts quality supplied by m/s Viking Tradelinks (Viking Group). We have been purchasing regular spare parts from their organization — BRAKE PADS OF BREMSKERL and other brake-related spares like caliper kits and rotors have been highly satisfactory. They also supply various spare parts for MAN, Mercedes, Scania & VOLVO applications which are supplied on time and are reliable for our fleet. We wish them continued success and a long-term business relationship.",
-    avatar: "/images/avatar.webp",
   },
   {
     name: "Gurpreet Singh",
     role: "Fleet Director, Apex Bulk Haulage (42 Volvo FH12 Units)",
     rating: 5,
     text: "When a multi-axle tipper breaks a brake disc or air spring in the middle of a contract, downtime costs ₹35,000 a day. Viking Tradelinks delivers genuine-grade Bremskerl pads and Volvo parts within 24 hours to our depot. We've worked with them for 11 years.",
-    avatar: "/images/avatar.webp",
   },
   {
     name: "Murat Özdemir",
     role: "Chief Logistician, Eurasia Trans-Continental Lines",
     rating: 5,
     text: "Having their procurement office in Istanbul and heavy distribution yard in Maharashtra gives us seamless parts availability for both European corridors and Indian transit routes. Outstanding technical knowledge of MAN and Mercedes trucks.",
-    avatar: "/images/avatar.webp",
   },
   {
     name: "Rajeshwar Shinde",
     role: "Maintenance Superintendent, Western Mining Consortium",
     rating: 5,
     text: "The used Actros G240-16 transmissions we sourced from Viking's Khalapur yard were inspected, tested, and bolted right in without a single shim problem. Their 14-day fitment guarantee gives our engineering team total peace of mind.",
-    avatar: "/images/avatar.webp",
   },
 ];
 

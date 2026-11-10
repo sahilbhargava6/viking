@@ -1,6 +1,6 @@
 import { PARTS } from "@/data/partsData";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://vikingeuroparts.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vikingtradelinks.in";
 
 export default function sitemap() {
   const staticRoutes = [

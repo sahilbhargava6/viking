@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { submitLead, whatsappUrl, LeadResult, HoneypotField } from "@/lib/leads";
 
 export default function FloatingConsulting() {
   const [isOpen, setIsOpen] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  // idle | sending | sent | failed
+  const [status, setStatus] = useState("idle");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -16,13 +18,29 @@ export default function FloatingConsulting() {
     details: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const formEl = e.currentTarget;
+    setStatus("sending");
+    const ok = await submitLead(
+      "consultation",
+      {
+        name: formData.name,
+        phone: formData.phone,
+        company: formData.company,
+        make: formData.brand,
+        reference: formData.vinOrPart,
+        message: formData.details,
+        sector: formData.sector,
+        consultingType: formData.consultingType,
+      },
+      formEl
+    );
+    setStatus(ok ? "sent" : "failed");
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(
+    const text = (
       `*VIKING TRADELINKS — DEALER SOFTWARE & AI CONSULTING REQUEST*\n` +
       `----------------------------------------\n` +
       `• *Client Name:* ${formData.name || "Fleet Operator"}\n` +
@@ -36,7 +54,7 @@ export default function FloatingConsulting() {
       `----------------------------------------\n` +
       `*A Viking Group Company Since 1969*`
     );
-    window.open(`https://wa.me/919702666664?text=${text}`, "_blank");
+    window.open(whatsappUrl(text), "_blank");
   };
 
   return (
@@ -121,33 +139,20 @@ export default function FloatingConsulting() {
               </button>
             </div>
 
-            {submitted ? (
-              <div style={{ padding: "2rem 1rem", textAlign: "center" }}>
-                <div style={{ fontSize: "2.5rem", color: "var(--safety)", marginBottom: "1rem" }}>✓</div>
-                <h4 style={{ fontSize: "1.4rem", marginBottom: "0.8rem" }}>
-                  Consultation Request Dispatched
-                </h4>
-                <p style={{ fontSize: "0.92rem", opacity: 0.8, lineHeight: "1.7", marginBottom: "1.5rem" }}>
-                  Our technical engineering team has logged your chassis and part parameters. We will review official factory EPC software and respond to <strong>{formData.phone || "your contact"}</strong> within 15 minutes.
-                </p>
-
-                <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-                  <button onClick={handleWhatsApp} className="btn btn--primary btn--sm">
-                    Open in WhatsApp for Live Specs →
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setIsOpen(false);
-                    }}
-                    className="btn btn--ghost btn--sm"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
+            {status === "sent" || status === "failed" ? (
+              <LeadResult
+                status={status}
+                phone={formData.phone}
+                onWhatsApp={handleWhatsApp}
+                onReset={() => {
+                  setStatus("idle");
+                  setIsOpen(false);
+                }}
+                resetLabel="Done"
+              />
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
+                <HoneypotField />
                 {/* Sector & Brand */}
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: "1rem" }}>
                   <div>
@@ -281,8 +286,8 @@ export default function FloatingConsulting() {
 
                 {/* Submit & WhatsApp buttons */}
                 <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
-                  <button type="submit" className="btn btn--primary" style={{ flex: 1 }}>
-                    Submit Consultation Request
+                  <button type="submit" className="btn btn--primary" style={{ flex: 1 }} disabled={status === "sending"}>
+                    {status === "sending" ? "Sending…" : "Submit Consultation Request"}
                   </button>
                   <button
                     type="button"

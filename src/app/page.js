@@ -13,6 +13,7 @@ import DownloadCatalogues from "@/components/DownloadCatalogues";
 import BrandMarquee from "@/components/BrandMarquee";
 import VolvoSpotlight from "@/components/VolvoSpotlight";
 import HeroVideo from "@/components/HeroVideo";
+import { submitLead, HoneypotField } from "@/lib/leads";
 import {
   BRANDS,
   CATEGORIES,
@@ -28,13 +29,16 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [alertEmail, setAlertEmail] = useState("");
-  const [alertSubscribed, setAlertSubscribed] = useState(false);
+  // idle | sending | sent | failed
+  const [alertStatus, setAlertStatus] = useState("idle");
 
-  const handleAlertSubmit = (e) => {
+  const handleAlertSubmit = async (e) => {
     e.preventDefault();
-    if (alertEmail) {
-      setAlertSubscribed(true);
-    }
+    if (!alertEmail) return;
+    const formEl = e.currentTarget;
+    setAlertStatus("sending");
+    const ok = await submitLead("parts-alert", { email: alertEmail }, formEl);
+    setAlertStatus(ok ? "sent" : "failed");
   };
 
   return (
@@ -544,12 +548,18 @@ export default function Home() {
             arrives at our Khalapur yard, be the first to reserve transmissions, axles, and engines.
           </p>
 
-          {alertSubscribed ? (
-            <div style={{ background: "rgba(0, 255, 102, 0.1)", border: "2px solid var(--term-green)", padding: "1.5rem", color: "var(--term-green)", fontWeight: 700 }}>
+          {alertStatus === "sent" ? (
+            <div role="status" style={{ background: "rgba(0, 255, 102, 0.1)", border: "2px solid var(--term-green)", padding: "1.5rem", color: "var(--term-green)", fontWeight: 700 }}>
               ✓ You are registered for Khalapur & Istanbul Used Parts Alerts!
             </div>
           ) : (
-            <form onSubmit={handleAlertSubmit} style={{ display: "flex", gap: "0.8rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <form onSubmit={handleAlertSubmit} style={{ display: "flex", gap: "0.8rem", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
+              <HoneypotField />
+              {alertStatus === "failed" && (
+                <div role="alert" style={{ flexBasis: "100%", color: "var(--gold)", fontWeight: 700, fontSize: "0.85rem" }}>
+                  We couldn’t register you right now. Please try again, or email schumi.india@gmail.com.
+                </div>
+              )}
               <input
                 type="email"
                 required
@@ -559,8 +569,8 @@ export default function Home() {
                 value={alertEmail}
                 onChange={(e) => setAlertEmail(e.target.value)}
               />
-              <button type="submit" className="btn btn--primary" style={{ padding: "0.8em 2em" }}>
-                Subscribe to Alerts
+              <button type="submit" className="btn btn--primary" style={{ padding: "0.8em 2em" }} disabled={alertStatus === "sending"}>
+                {alertStatus === "sending" ? "Sending…" : "Subscribe to Alerts"}
               </button>
             </form>
           )}
@@ -592,13 +602,31 @@ export default function Home() {
                   &ldquo;{t.text}&rdquo;
                 </p>
                 <div style={{ borderTop: "1px solid rgba(0,0,0,0.1)", paddingTop: "1rem", display: "flex", alignItems: "center", gap: "1rem" }}>
-                  {t.avatar && (
-                    <img loading="lazy" decoding="async"
-                      src={t.avatar}
-                      alt={t.name}
-                      style={{ width: "42px", height: "42px", borderRadius: "50%", border: "2px solid var(--safety)" }}
-                    />
-                  )}
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      width: "42px",
+                      height: "42px",
+                      flexShrink: 0,
+                      borderRadius: "50%",
+                      border: "2px solid var(--safety)",
+                      background: "var(--ink)",
+                      color: "#FFFFFF",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontFamily: "var(--font-space-grotesk)",
+                      fontWeight: 700,
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    {t.name
+                      .split(/\s+/)
+                      .filter((w) => /^\p{L}/u.test(w))
+                      .slice(0, 2)
+                      .map((w) => w[0].toUpperCase())
+                      .join("")}
+                  </span>
                   <div>
                     <div style={{ fontWeight: 700, fontFamily: "var(--font-space-grotesk)", fontSize: "1.05rem" }}>
                       {t.name}

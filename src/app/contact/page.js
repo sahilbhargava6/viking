@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { LOCATIONS } from "@/data/partsData";
 import TickerBar from "@/components/TickerBar";
+import { submitLead, whatsappUrl, LeadResult, HoneypotField } from "@/lib/leads";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -13,18 +14,24 @@ export default function ContactPage() {
     oemOrVin: "",
     notes: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  // idle | sending | sent | failed
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const formEl = e.currentTarget;
+    setStatus("sending");
+    const ok = await submitLead(
+      "contact",
+      { name: form.name, phone: form.phone, email: form.email, make: form.truckMake, reference: form.oemOrVin, message: form.notes },
+      formEl
+    );
+    setStatus(ok ? "sent" : "failed");
   };
 
   const openWhatsApp = () => {
-    const text = encodeURIComponent(
-      `Hello Viking Tradelinks!\nName: ${form.name || "Fleet Client"}\nPhone: ${form.phone || ""}\nMake: ${form.truckMake}\nOEM / VIN: ${form.oemOrVin}\nRequirement: ${form.notes}`
-    );
-    window.open(`https://wa.me/919702666664?text=${text}`, "_blank");
+    const text = `Hello Viking Tradelinks!\nName: ${form.name || "Fleet Client"}\nPhone: ${form.phone || ""}\nMake: ${form.truckMake}\nOEM / VIN: ${form.oemOrVin}\nRequirement: ${form.notes}`;
+    window.open(whatsappUrl(text), "_blank");
   };
 
   return (
@@ -54,25 +61,16 @@ export default function ContactPage() {
                   Fill in your vehicle chassis or component number. We provide immediate stock confirmation and delivery timeline.
                 </p>
 
-                {submitted ? (
-                  <div style={{ background: "var(--surface)", border: "var(--border)", padding: "2rem", textAlign: "center" }}>
-                    <div style={{ color: "var(--safety)", fontWeight: 700, fontSize: "1.3rem", marginBottom: "0.8rem" }}>
-                      ✓ INQUIRY DISPATCHED TO ENGINEERING TEAM
-                    </div>
-                    <p style={{ fontSize: "0.9rem", opacity: 0.8, marginBottom: "1.5rem" }}>
-                      Our dispatch manager will review stock at Khalapur and contact you at <strong>{form.phone}</strong> within 15 minutes.
-                    </p>
-                    <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-                      <button className="btn btn--primary" onClick={openWhatsApp}>
-                        Connect on WhatsApp Now (+91 9702666664)
-                      </button>
-                      <button className="btn btn--ghost" onClick={() => setSubmitted(false)}>
-                        Send Another Inquiry
-                      </button>
-                    </div>
-                  </div>
+                {status === "sent" || status === "failed" ? (
+                  <LeadResult
+                    status={status}
+                    phone={form.phone}
+                    onWhatsApp={openWhatsApp}
+                    onReset={() => setStatus("idle")}
+                  />
                 ) : (
-                  <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+                  <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.2rem", position: "relative" }}>
+                    <HoneypotField />
                     <div>
                       <label style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "0.4rem" }}>
                         Your Name / Fleet Organization *
@@ -160,8 +158,8 @@ export default function ContactPage() {
                     </div>
 
                     <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
-                      <button type="submit" className="btn btn--primary" style={{ flex: 1 }}>
-                        Submit Inquiry (15-Min Response)
+                      <button type="submit" className="btn btn--primary" style={{ flex: 1 }} disabled={status === "sending"}>
+                        {status === "sending" ? "Sending…" : "Submit Inquiry"}
                       </button>
                       <button type="button" className="btn btn--ghost" onClick={openWhatsApp}>
                         WhatsApp Hotline

@@ -28,7 +28,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://vikingeuroparts.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.vikingtradelinks.in"),
   title: "VIKING TRADELINKS — European Commercial Spare Parts (Viking Group Since 1969)",
   description:
     "A Viking Group Company Since 1969. Specialist suppliers for Trucks, Buses, Mining & Marine (MAN, Mercedes-Benz, Scania & Volvo). Domestic dispatch in 24 hours across India, international delivery in 7 days.",
@@ -63,7 +63,7 @@ export const metadata = {
     title: "VIKING TRADELINKS — European Commercial Parts (Viking Group Since 1969)",
     description:
       "A Viking Group Company Since 1969. Specialist suppliers for Trucks, Buses, Construction & Mining, and Marine. Domestic 24h & International 7d dispatch.",
-    url: "https://vikingeuroparts.com",
+    url: "https://www.vikingtradelinks.in",
     siteName: "Viking Tradelinks",
     images: [
       {
@@ -99,12 +99,12 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "AutoPartsStore",
-  "@id": "https://vikingeuroparts.com/#organization",
+  "@id": "https://www.vikingtradelinks.in/#organization",
   name: "Viking Tradelinks",
   legalName: "Viking Tradelinks (A Viking Group Company Since 1969)",
-  url: "https://vikingeuroparts.com",
-  logo: "https://vikingeuroparts.com/images/logo.png",
-  image: "https://vikingeuroparts.com/images/hero-banner.jpeg",
+  url: "https://www.vikingtradelinks.in",
+  logo: "https://www.vikingtradelinks.in/images/logo.png",
+  image: "https://www.vikingtradelinks.in/images/hero-banner.jpeg",
   foundingDate: "1969",
   description:
     "European commercial vehicle specialist supplying OEM & certified dismantled parts for MAN, Mercedes-Benz, Scania & Volvo trucks, luxury buses, mining equipment, and marine propulsion since 1969.",
@@ -147,18 +147,18 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://vikingeuroparts.com/#website",
-  url: "https://vikingeuroparts.com",
+  "@id": "https://www.vikingtradelinks.in/#website",
+  url: "https://www.vikingtradelinks.in",
   name: "VIKING TRADELINKS",
   description: "European Commercial Spare Parts Portal — Viking Group Since 1969",
   publisher: {
-    "@id": "https://vikingeuroparts.com/#organization",
+    "@id": "https://www.vikingtradelinks.in/#organization",
   },
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://vikingeuroparts.com/parts?search={search_term_string}",
+      urlTemplate: "https://www.vikingtradelinks.in/parts?search={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },
