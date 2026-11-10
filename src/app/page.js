@@ -12,6 +12,7 @@ import TruckExplosionDiagram from "@/components/TruckExplosionDiagram";
 import DownloadCatalogues from "@/components/DownloadCatalogues";
 import BrandMarquee from "@/components/BrandMarquee";
 import VolvoSpotlight from "@/components/VolvoSpotlight";
+import HeroVideo from "@/components/HeroVideo";
 import {
   BRANDS,
   CATEGORIES,
@@ -39,15 +40,8 @@ export default function Home() {
   return (
     <>
       {/* ====== HERO ====== */}
-      <section
-        className="hero"
-        style={{
-          backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.85) 100%), url('/images/hero-banner.jpeg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <section className="hero">
+        <HeroVideo />
         <div className="hero__grid hero__grid--dense" aria-hidden="true"></div>
         <div className="hero__badges-row">
           <div className="hero__label">
