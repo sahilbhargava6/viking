@@ -8,11 +8,7 @@ import { useRfq } from "@/context/RfqContext";
 import QuoteModal from "@/components/QuoteModal";
 import TickerBar from "@/components/TickerBar";
 
-function PartsCatalogContent() {
-  const searchParams = useSearchParams();
-  const brandQuery = searchParams.get("brand") || "all";
-  const categoryQuery = searchParams.get("category") || "all";
-  const segmentQuery = searchParams.get("segment") || "all";
+function PartsCatalogContent({ brandQuery = "all", categoryQuery = "all", segmentQuery = "all" }) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedBrand, setSelectedBrand] = useState(brandQuery);
@@ -369,7 +365,7 @@ function PartsCatalogContent() {
                               overflow: "hidden",
                             }}
                           >
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={part.image}
                               alt={part.title}
                               style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
@@ -507,10 +503,28 @@ function PartsCatalogContent() {
   );
 }
 
-export default function PartsPage() {
+// Reads ?brand=/?category=/?segment= from the URL (client-only in Next.js).
+function PartsCatalogFromUrl() {
+  const searchParams = useSearchParams();
+  const brandQuery = searchParams.get("brand") || "all";
+  const categoryQuery = searchParams.get("category") || "all";
+  const segmentQuery = searchParams.get("segment") || "all";
   return (
-    <Suspense fallback={<div style={{ padding: "4rem", textAlign: "center" }}>Loading Parts Catalogue...</div>}>
-      <PartsCatalogContent />
+    <PartsCatalogContent
+      key={`${brandQuery}|${categoryQuery}|${segmentQuery}`}
+      brandQuery={brandQuery}
+      categoryQuery={categoryQuery}
+      segmentQuery={segmentQuery}
+    />
+  );
+}
+
+export default function PartsPage() {
+  // The fallback is the full, unfiltered catalogue, so the server-rendered HTML
+  // already has the real content and the footer does not jump when it hydrates.
+  return (
+    <Suspense fallback={<PartsCatalogContent />}>
+      <PartsCatalogFromUrl />
     </Suspense>
   );
 }

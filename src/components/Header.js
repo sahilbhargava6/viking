@@ -75,7 +75,10 @@ export default function Header() {
             <Link href="/" className="header__logo" aria-label="Viking Tradelinks Home">
               <div className="header__logo-mark">
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo-mark.webp"
+                  width={128}
+                  height={128}
+                  fetchPriority="high"
                   alt="Viking Tradelinks Logo"
                   style={{ width: "100%", height: "100%", objectFit: "contain" }}
                 />

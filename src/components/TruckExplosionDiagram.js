@@ -323,7 +323,7 @@ export default function TruckExplosionDiagram() {
                     padding: "4px",
                   }}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={part.image}
                     alt={part.title}
                     style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}

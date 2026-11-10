@@ -164,7 +164,7 @@ function PartDetailContent({ params }) {
                   overflow: "hidden",
                 }}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={part.image}
                   alt={part.title}
                   style={{
@@ -453,7 +453,7 @@ function PartDetailContent({ params }) {
                 <div key={rel.id} className="bento-card" style={{ padding: "1.2rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ height: "140px", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "0.8rem", padding: "0.5rem" }}>
-                      <img src={rel.image} alt={rel.title} style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }} />
+                      <img loading="lazy" decoding="async" src={rel.image} alt={rel.title} style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }} />
                     </div>
                     <div style={{ fontSize: "0.7rem", color: "var(--safety)", fontWeight: 700 }}>{rel.id} • {rel.condition}</div>
                     <h4 style={{ fontSize: "0.95rem", margin: "0.3rem 0" }}>{rel.title}</h4>

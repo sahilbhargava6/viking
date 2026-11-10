@@ -83,7 +83,7 @@ export default function YardGallery() {
           </div>
           <figure className="yard-lightbox__figure" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/images/yard/${current.src}.webp`} alt={current.caption} />
+            <img loading="lazy" decoding="async" src={`/images/yard/${current.src}.webp`} alt={current.caption} />
             <figcaption>{current.caption}</figcaption>
           </figure>
           <button

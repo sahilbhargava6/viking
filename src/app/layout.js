@@ -56,8 +56,8 @@ export const metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/logo-192.png",
+    apple: "/images/apple-icon-180.png",
   },
   openGraph: {
     title: "VIKING TRADELINKS — European Commercial Parts (Viking Group Since 1969)",

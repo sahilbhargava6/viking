@@ -181,7 +181,7 @@ export default function ElectricVehiclesPage() {
             </div>
 
             <div style={{ position: "relative", width: "100%", background: "#FFFFFF", padding: "1.5rem", textAlign: "center" }}>
-              <img
+              <img width={1280} height={720} loading="lazy" decoding="async"
                 src="/images/evbuses.jpeg"
                 alt="Leading Companies of Electric Bus Stand: JBM Group, Olectra, PMI, SWITCH, TATA"
                 style={{

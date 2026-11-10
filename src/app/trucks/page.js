@@ -125,8 +125,8 @@ export default function TrucksPage() {
             }}
           >
             <div style={{ position: "relative", width: "100%", height: "auto" }}>
-              <img
-                src="/images/truck_banner_hd.jpeg"
+              <img width={1376} height={768} fetchPriority="high" decoding="async"
+                src="/images/truck_banner_hd.webp"
                 alt="European Trucks Fleet: Volvo, MAN, Mercedes-Benz, Renault - Leading European Brands Built For Your Business"
                 style={{
                   width: "100%",

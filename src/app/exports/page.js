@@ -130,8 +130,8 @@ export default function ExportsPage() {
               </div>
 
               <div style={{ padding: "1.2rem", background: "#FFF", textAlign: "center" }}>
-                <img
-                  src="/images/indian-truck-brands-collage.png"
+                <img width={750} height={660} loading="lazy" decoding="async"
+                  src="/images/indian-truck-brands-collage.webp"
                   alt="Top Truck Brands in India: Mahindra, Eicher, BharatBenz, Volvo, Ashok Leyland, Tata Motors"
                   style={{ width: "100%", height: "auto", maxHeight: "360px", objectFit: "contain", margin: "0 auto", display: "block" }}
                 />
@@ -164,8 +164,8 @@ export default function ExportsPage() {
               </div>
 
               <div style={{ padding: "1.2rem", background: "#FFF", textAlign: "center" }}>
-                <img
-                  src="/images/fuso-truck-brands-collage.png"
+                <img width={750} height={660} loading="lazy" decoding="async"
+                  src="/images/fuso-truck-brands-collage.webp"
                   alt="Mitsubishi FUSO & Truck Brands: FUSO, SML Isuzu, MAN, Force Motors, AMW, Daimler Truck"
                   style={{ width: "100%", height: "auto", maxHeight: "360px", objectFit: "contain", margin: "0 auto", display: "block" }}
                 />

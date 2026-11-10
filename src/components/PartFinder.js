@@ -153,7 +153,7 @@ export default function PartFinder({ initialBrand = "all", initialCategory = "al
                       overflow: "hidden",
                     }}
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={part.image}
                       alt={part.title}
                       style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}

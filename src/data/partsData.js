@@ -138,7 +138,7 @@ export const CATEGORIES = [
   {
     id: "dismantled",
     name: "Certified Dismantled Assemblies",
-    image: "/images/truck-engine.jpg",
+    image: "/images/truck-engine.webp",
     desc: "Tested used engines, transmissions (G240-16 / I-Shift) & differential axles with warranty.",
   },
 ];
@@ -384,7 +384,7 @@ export const PARTS = [
     oemRef: "715560 / G240-16 EPS/Telligent",
     condition: "Tested & Certified Used",
     supplier: "Direct European Fleet Import",
-    image: "/images/truck-engine.jpg",
+    image: "/images/truck-engine.webp",
     warranty: "14-Day Trial + 6-Month Option",
     stock: "1 Unit Available — Khalapur Yard",
     dispatchTime: "Sequence Loaded on Crane",
@@ -405,7 +405,7 @@ export const PARTS = [
     oemRef: "EV87 / RSS1344 / 20541122",
     condition: "Tested & Certified Used",
     supplier: "European Dismantling Yard (Direct Import)",
-    image: "/images/truck-engine.jpg",
+    image: "/images/truck-engine.webp",
     warranty: "14-Day Fitment Guarantee + 90-Day Coverage",
     stock: "In Stock — Khalapur Central Yard",
     dispatchTime: "24 Hours (Sequence Crated)",

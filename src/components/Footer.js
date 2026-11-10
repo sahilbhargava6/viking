@@ -26,8 +26,10 @@ export default function Footer() {
                   flexShrink: 0,
                 }}
               >
-                <img
-                  src="/images/logo.png"
+                <img loading="lazy" decoding="async"
+                  src="/images/logo-mark.webp"
+                  width={128}
+                  height={128}
                   alt="Viking Tradelinks Official Emblem"
                   style={{ width: "100%", height: "100%", objectFit: "contain" }}
                 />

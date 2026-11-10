@@ -167,7 +167,7 @@ export default function RfqDrawer() {
                           padding: "4px",
                         }}
                       >
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={item.image}
                           alt={item.title}
                           style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}

@@ -11,13 +11,13 @@ export default function manifest() {
     orientation: "portrait-primary",
     icons: [
       {
-        src: "/images/logo.png",
+        src: "/images/logo-192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable any",
       },
       {
-        src: "/images/logo.png",
+        src: "/images/logo-512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable any",

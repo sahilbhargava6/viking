@@ -132,7 +132,7 @@ export default function Home() {
                   background: "#000",
                 }}
               >
-                <img
+                <img width={783} height={391} loading="lazy" decoding="async"
                   src="/images/about-fleet.jpeg"
                   alt="Viking Tradelinks European Commercial Fleet"
                   style={{ width: "100%", height: "auto", display: "block" }}
@@ -251,8 +251,8 @@ export default function Home() {
           </div>
 
           <div style={{ border: "3px solid var(--gold)", boxShadow: "8px 8px 0px rgba(0,0,0,0.4)", overflow: "hidden", position: "relative", background: "var(--grey-900)" }}>
-            <img
-              src="/images/truck_banner_hd.jpeg"
+            <img width={1376} height={768} loading="lazy" decoding="async"
+              src="/images/truck_banner_hd.webp"
               alt="Leading European Brands Built For Your Business - Volvo, MAN, Mercedes-Benz, Renault"
               style={{
                 width: "100%",
@@ -300,7 +300,7 @@ export default function Home() {
               </span>
             </div>
             <div style={{ padding: "1.5rem", background: "#FFF", textAlign: "center" }}>
-              <img
+              <img width={1280} height={720} loading="lazy" decoding="async"
                 src="/images/evbuses.jpeg"
                 alt="Leading Companies of Electric Bus Stand: JBM Group, Olectra, PMI, SWITCH, TATA"
                 style={{ maxWidth: "800px", width: "100%", height: "auto", margin: "0 auto", display: "block", objectFit: "contain" }}
@@ -338,8 +338,8 @@ export default function Home() {
                 <span style={{ color: "var(--gold)" }}>BRANDS COLLAGE</span>
               </div>
               <div style={{ padding: "1.2rem", flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img
-                  src="/images/indian-truck-brands-collage.png"
+                <img width={750} height={660} loading="lazy" decoding="async"
+                  src="/images/indian-truck-brands-collage.webp"
                   alt="Indian Truck Brands Collage: Mahindra, Eicher, BharatBenz, Volvo, Ashok Leyland, Tata Motors"
                   style={{ maxHeight: "320px", width: "100%", objectFit: "contain", display: "block" }}
                 />
@@ -355,8 +355,8 @@ export default function Home() {
                 <span style={{ color: "var(--gold)" }}>BRANDS COLLAGE</span>
               </div>
               <div style={{ padding: "1.2rem", flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img
-                  src="/images/fuso-truck-brands-collage.png"
+                <img width={750} height={660} loading="lazy" decoding="async"
+                  src="/images/fuso-truck-brands-collage.webp"
                   alt="Mitsubishi FUSO and Truck Brands Collage: FUSO, SML Isuzu, MAN, Force Motors, AMW, Daimler Truck"
                   style={{ maxHeight: "320px", width: "100%", objectFit: "contain", display: "block" }}
                 />
@@ -415,7 +415,7 @@ export default function Home() {
                     overflow: "hidden",
                   }}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={cat.image}
                     alt={cat.name}
                     style={{
@@ -593,7 +593,7 @@ export default function Home() {
                 </p>
                 <div style={{ borderTop: "1px solid rgba(0,0,0,0.1)", paddingTop: "1rem", display: "flex", alignItems: "center", gap: "1rem" }}>
                   {t.avatar && (
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={t.avatar}
                       alt={t.name}
                       style={{ width: "42px", height: "42px", borderRadius: "50%", border: "2px solid var(--safety)" }}
