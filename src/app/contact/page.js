@@ -186,7 +186,7 @@ export default function ContactPage() {
                   +91 9702666664
                 </div>
                 <div style={{ fontSize: "0.85rem", opacity: 0.8, marginBottom: "1.2rem" }}>
-                  Email: schumi.india@mail.com
+                  Email: schumi.india@gmail.com
                 </div>
                 <a href="tel:+919702666664" className="btn btn--primary btn--sm" style={{ width: "100%" }}>
                   Call Hotline Now

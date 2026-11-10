@@ -48,11 +48,11 @@ export default function Header() {
 
         <div className="topbar__right">
           <a
-            href="mailto:schumi.india@mail.com"
+            href="mailto:schumi.india@gmail.com"
             className="topbar__email topbar__item--wide-only"
             title="Email Inquiries"
           >
-            schumi.india@mail.com
+            schumi.india@gmail.com
           </a>
           <span className="topbar__sep topbar__item--wide-only">|</span>
           <a

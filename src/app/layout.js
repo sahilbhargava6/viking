@@ -109,7 +109,7 @@ const organizationSchema = {
   description:
     "European commercial vehicle specialist supplying OEM & certified dismantled parts for MAN, Mercedes-Benz, Scania & Volvo trucks, luxury buses, mining equipment, and marine propulsion since 1969.",
   telephone: "+919702666664",
-  email: "schumi.india@mail.com",
+  email: "schumi.india@gmail.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "36-A, 1st Bhatwadi, Girgaon",

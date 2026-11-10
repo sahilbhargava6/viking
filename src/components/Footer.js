@@ -81,7 +81,7 @@ export default function Footer() {
             </p>
             <div style={{ marginTop: "1rem", display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
               <a href="tel:+919702666664" className="btn btn--primary btn--sm">Call: +91 9702666664</a>
-              <a href="mailto:schumi.india@mail.com" className="btn btn--ghost btn--sm">Email: schumi.india@mail.com</a>
+              <a href="mailto:schumi.india@gmail.com" className="btn btn--ghost btn--sm">Email: schumi.india@gmail.com</a>
             </div>
           </div>
         </div>
