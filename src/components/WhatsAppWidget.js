@@ -17,6 +17,7 @@ export default function WhatsAppWidget() {
 
   return (
     <div
+      className="wa-widget"
       style={{
         position: "fixed",
         bottom: "24px",
@@ -28,11 +29,12 @@ export default function WhatsAppWidget() {
       {/* Expanded Quick Chat Box */}
       {isOpen && (
         <div
+          className="wa-panel"
           style={{
             position: "absolute",
             bottom: "76px",
             right: "0",
-            width: "320px",
+            width: "min(320px, calc(100vw - 24px))",
             background: "var(--base)",
             border: "var(--border)",
             boxShadow: "var(--shadow)",
@@ -141,6 +143,7 @@ export default function WhatsAppWidget() {
 
       {/* Floating Main Button */}
       <button
+        className="wa-trigger"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle WhatsApp chat widget"
         style={{

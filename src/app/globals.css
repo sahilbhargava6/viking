@@ -2272,3 +2272,191 @@ h1, h2, h3, h4, h5, h6, .font-display {
   .yard-gallery__caption { transform: translateY(0); font-size: 0.65rem; padding: 0.4rem 0.6rem; }
   .yard-lightbox__nav { top: auto; bottom: 1rem; transform: none; }
 }
+
+/* ============================================================
+   CROSS-DEVICE FIXES — phones, tablets, laptops, wide screens
+   ============================================================ */
+
+/* Header (burger-menu sizes): brand text yields space so action buttons never leave the screen */
+@media (max-width: 1300px) {
+  .header__left,
+  .header__logo,
+  .header__brand-text {
+    min-width: 0;
+  }
+
+  .header__left { flex-shrink: 1; }
+
+  .header__brand-name,
+  .header__brand-sub {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Burger: full-size touch target, animates into an X when open */
+.header__burger {
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header__burger.is-active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.header__burger.is-active span:nth-child(2) { opacity: 0; }
+.header__burger.is-active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.header__nav-close { width: 44px; height: 44px; }
+
+/* The drawer header used a JS-style property name; give it the real CSS one */
+@media (max-width: 1300px) {
+  .header__nav-mobile-header { justify-content: space-between; }
+}
+
+@media (max-width: 400px) {
+  .header__brand-name { font-size: 0.8rem; letter-spacing: 0.02em; }
+  .header__logo { gap: 0.45rem; }
+  .header__logo-mark { width: 34px; height: 34px; }
+  .header__right { gap: 0.35rem; }
+}
+
+/* Long unbroken words (part codes, URLs, emails) wrap instead of widening a card */
+.bento-card,
+.part-card,
+.section__title,
+.section__eyebrow {
+  overflow-wrap: anywhere;
+}
+
+/* Grid children may shrink below their content width (prevents long text widening tracks) */
+.bento-grid--2col > *,
+.volvo-detail-card > *,
+.bento__grid > *,
+.yard-gallery > * {
+  min-width: 0;
+}
+
+/* Collapsed 1-column layouts: span the single explicit column instead of
+   "span 12", which made the grid invent 11 extra columns and overflow */
+@media (max-width: 992px) {
+  .bento-col-half,
+  .volvo-detail-col-left,
+  .volvo-detail-col-right {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* Eyebrow text already starts with "//" in the markup — drop the duplicate */
+.section__eyebrow::before { content: none; }
+
+/* Headings: break very long words rather than overflow (hyphenate on small phones only) */
+h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 400px) {
+  h1, h2, h3, h4 { hyphens: auto; }
+}
+
+/* Small phones: scale the display type down so single long words fit */
+@media (max-width: 400px) {
+  :root {
+    --fs-h1: clamp(1.9rem, 9vw, 2.4rem);
+    --fs-h2: clamp(1.5rem, 7.6vw, 1.8rem);
+  }
+}
+
+/* Phones & tablets: readable minimum sizes for labels and tags */
+@media (max-width: 768px) {
+  .tag,
+  .hero__stat-label {
+    font-size: 0.72rem;
+  }
+  .hero__stat-label { opacity: 0.6; }
+}
+
+/* Touch screens: comfortable tap targets (~40px+) for controls */
+@media (pointer: coarse), (max-width: 768px) {
+  button,
+  .btn,
+  select,
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+    min-height: 40px;
+  }
+  .topbar__phone {
+    min-height: 30px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Contact page: stack form and sidebar on tablets/phones; stack field pairs on phones */
+.contact-layout > * { min-width: 0; }
+
+@media (max-width: 900px) {
+  .contact-main,
+  .contact-side {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .form-row-2 { grid-template-columns: 1fr !important; }
+}
+
+/* Mobile nav drawer: anchor to the right edge it slides in from; use the
+   dynamic viewport height so the last links are not hidden under browser UI */
+@media (max-width: 1300px) {
+  .header__nav {
+    left: auto;
+    height: 100vh;
+    height: 100dvh;
+  }
+}
+
+/* While the menu is open, lift the header above floating widgets */
+.header:has(.header__nav.open) { z-index: 3000; }
+
+/* WhatsApp widget: tighter to the corner on phones, panel scrolls on short screens */
+.wa-panel {
+  max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 120px);
+  overflow-y: auto !important;
+}
+
+@media (max-width: 768px) {
+  .wa-widget {
+    bottom: 12px !important;
+    right: 10px !important;
+  }
+  .wa-trigger svg { width: 26px; height: 26px; }
+  .wa-panel { bottom: 58px !important; }
+}
+
+/* Smallest phones: wrap the brand name onto two lines instead of truncating */
+@media (max-width: 400px) {
+  .header__logo { white-space: normal; }
+  .header__brand-name { line-height: 1.05; overflow: visible; }
+}
+
+/* Phones & tablets: legible small buttons/tags and finger-friendly footer links */
+@media (max-width: 768px) {
+  .btn--sm { font-size: 0.72rem; }
+  .tag { font-size: 0.7rem !important; }
+  .footer__col a {
+    display: block;
+    padding-block: 0.6rem;
+  }
+}
+
+/* Laptops (1301–1780px): the full nav + phone pill does not fit. The same
+   helpline number is already in the top bar, so drop the pill here. */
+@media (min-width: 1301px) and (max-width: 1780px) {
+  .header__phone-pill { display: none; }
+}
+
+@media (min-width: 1301px) and (max-width: 1400px) {
+  .header__brand-sub { display: none; }
+  .header__nav a { padding: 0 0.5rem; font-size: 0.7rem; }
+}

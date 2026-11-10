@@ -102,7 +102,7 @@ export default function TruckExplosionDiagram() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
+          gridTemplateColumns: "minmax(0, 1fr)",
           gap: "2rem",
           alignItems: "center",
         }}
@@ -110,11 +110,11 @@ export default function TruckExplosionDiagram() {
         {/* Interactive Schematic Diagram */}
         <div
           style={{
-            gridColumn: "span 12",
+            gridColumn: "1 / -1",
             position: "relative",
             background: "#161616",
             border: "2px solid #333",
-            padding: "2rem 1.5rem",
+            padding: "clamp(1rem, 3vw, 2rem) clamp(0.75rem, 2.5vw, 1.5rem)",
             overflow: "hidden",
           }}
         >
@@ -274,7 +274,7 @@ export default function TruckExplosionDiagram() {
         </div>
 
         {/* Selected Module Detail Panel */}
-        <div style={{ gridColumn: "span 12", background: "#1a1a1a", border: "2px solid #333", padding: "1.8rem" }}>
+        <div style={{ gridColumn: "1 / -1", background: "#1a1a1a", border: "2px solid #333", padding: "clamp(1rem, 3vw, 1.8rem)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem", marginBottom: "1.2rem" }}>
             <div>
               <div style={{ color: "var(--safety)", fontSize: "0.75rem", fontWeight: 700 }}>
@@ -297,7 +297,7 @@ export default function TruckExplosionDiagram() {
           </div>
 
           {/* Quick Line Items Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(260px, 100%), 1fr))", gap: "1rem" }}>
             {systemParts.map((part) => (
               <div
                 key={part.id}
@@ -338,9 +338,11 @@ export default function TruckExplosionDiagram() {
                       fontSize: "0.82rem",
                       fontWeight: 700,
                       margin: "0.2rem 0",
-                      whiteSpace: "nowrap",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
                       overflow: "hidden",
-                      textOverflow: "ellipsis",
+                      lineHeight: 1.35,
                       color: "#fff",
                     }}
                   >

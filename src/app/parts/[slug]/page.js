@@ -334,7 +334,7 @@ function PartDetailContent({ params }) {
 
               {/* Technical Specifications Tabs */}
               <div style={{ borderTop: "2px solid #000", paddingTop: "1.5rem" }}>
-                <div style={{ display: "flex", gap: "0.5rem", borderBottom: "var(--border-thin)", paddingBottom: "0.5rem", marginBottom: "1rem" }}>
+                <div className="part-tabs" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", borderBottom: "var(--border-thin)", paddingBottom: "0.5rem", marginBottom: "1rem" }}>
                   <button
                     onClick={() => setActiveTab("specs")}
                     style={{
@@ -448,7 +448,7 @@ function PartDetailContent({ params }) {
               </h3>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "1.5rem" }}>
               {relatedParts.map((rel) => (
                 <div key={rel.id} className="bento-card" style={{ padding: "1.2rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>

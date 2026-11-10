@@ -44,9 +44,9 @@ export default function ContactPage() {
 
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "var(--gap)", alignItems: "start" }}>
+          <div className="contact-layout" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "var(--gap)", alignItems: "start" }}>
             {/* Contact Form */}
-            <div style={{ gridColumn: "span 7" }}>
+            <div className="contact-main" style={{ gridColumn: "span 7" }}>
               <div className="bento-card" style={{ padding: "clamp(2rem, 3.5vw, 3rem)" }}>
                 <div className="section__eyebrow">// FAST QUOTATION FORM</div>
                 <h2 style={{ fontSize: "var(--fs-h2)", marginBottom: "0.8rem" }}>Request Part Inquiry</h2>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                    <div className="form-row-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                       <div>
                         <label style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "0.4rem" }}>
                           Mobile / WhatsApp Number *
@@ -115,7 +115,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                    <div className="form-row-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                       <div>
                         <label style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "0.4rem" }}>
                           Commercial Truck Make *
@@ -173,7 +173,7 @@ export default function ContactPage() {
             </div>
 
             {/* Direct Contact & Locations */}
-            <div style={{ gridColumn: "span 5", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            <div className="contact-side" style={{ gridColumn: "span 5", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               <div className="bento-card bento-card--dark" style={{ padding: "2rem" }}>
                 <div style={{ fontSize: "0.7rem", color: "var(--safety)", fontWeight: 700, textTransform: "uppercase", marginBottom: "0.5rem" }}>
                   // EMERGENCY BREAKDOWN HELPLINE

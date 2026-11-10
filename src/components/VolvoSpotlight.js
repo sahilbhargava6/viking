@@ -107,7 +107,7 @@ export default function VolvoSpotlight() {
         </div>
 
         {/* Interactive Platform Tabs */}
-        <div className="volvo-tabs" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "0.8rem", marginBottom: "2rem" }}>
+        <div className="volvo-tabs" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "0.8rem", marginBottom: "2rem" }}>
           {volvoCategories.map((cat) => {
             const isSelected = activeTab === cat.id;
             return (
@@ -182,7 +182,7 @@ export default function VolvoSpotlight() {
               <div style={{ fontSize: "0.76rem", color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em", fontWeight: 800, marginBottom: "0.8rem", textTransform: "uppercase" }}>
                 // KEY VOLVO COMPONENT SYSTEMS IN STOCK:
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.6rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "0.6rem" }}>
                 {currentData.highlights.map((h, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", fontSize: "0.85rem", color: "rgba(255,255,255,0.9)" }}>
                     <span style={{ color: "var(--gold)", fontWeight: 900 }}>▸</span>

@@ -122,7 +122,7 @@ export default function PartFinder({ initialBrand = "all", initialCategory = "al
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "1.5rem", marginTop: "1.5rem" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))", gap: "1.5rem", marginTop: "1.5rem" }}>
         {filteredParts.length === 0 ? (
           <div style={{ gridColumn: "1 / -1", padding: "3rem", textAlign: "center", border: "2px dashed var(--ink)", background: "var(--surface)" }}>
             <div style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem" }}>NO MATCHING PART NUMBER FOUND IN IMMEDIATE INDEX</div>

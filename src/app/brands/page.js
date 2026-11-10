@@ -121,7 +121,7 @@ export default function BrandsPage() {
                     {details.overview}
                   </p>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1.5rem" }}>
                     {details.assemblies.map((a, idx) => (
                       <div key={idx} style={{ background: "var(--surface)", border: "var(--border-thin)", padding: "1.4rem" }}>
                         <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--safety)", textTransform: "uppercase", marginBottom: "0.4rem" }}>
@@ -147,7 +147,7 @@ export default function BrandsPage() {
             Explore Dedicated Fleet Programs<span className="accent">.</span>
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "2rem" }}>
             <Link href="/trucks" className="bento-card" style={{ background: "#111", border: "2px solid rgba(255,255,255,0.2)", padding: "1.8rem", color: "#FFF", textDecoration: "none" }}>
               <span className="tag tag--safety" style={{ marginBottom: "0.8rem", display: "inline-block" }}>EUROPEAN TRUCKS</span>
               <h3 style={{ fontSize: "1.3rem", color: "#FFF", marginBottom: "0.5rem" }}>Commercial Truck Fleets →</h3>

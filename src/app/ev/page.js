@@ -223,7 +223,7 @@ export default function ElectricVehiclesPage() {
             Leading Electric Bus Stand &amp; Fleet Systems<span className="accent">.</span>
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(360px, 100%), 1fr))", gap: "2rem" }}>
             {evLeaders.map((leader) => (
               <div
                 key={leader.id}
@@ -290,7 +290,7 @@ export default function ElectricVehiclesPage() {
             High-Demand EV Charging Stand &amp; Fleet Hardware<span className="accent">.</span>
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(290px, 100%), 1fr))", gap: "1.5rem" }}>
             {evComponents.map((comp) => (
               <div
                 key={comp.id}

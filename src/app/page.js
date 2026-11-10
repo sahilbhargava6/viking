@@ -204,7 +204,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1.5rem" }}>
             {SECTORS.map((sector, idx) => (
               <div key={sector.id} className="sector-card">
                 <div>
@@ -331,7 +331,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", gap: "2rem" }}>
             <div style={{ border: "2px solid var(--grey-300)", boxShadow: "6px 6px 0px rgba(0,0,0,0.08)", background: "#FFF", overflow: "hidden", display: "flex", flexDirection: "column" }}>
               <div style={{ background: "var(--burgundy)", padding: "0.8rem 1.2rem", color: "#FFF", fontSize: "0.8rem", fontWeight: 700, display: "flex", justifyContent: "space-between" }}>
                 <span>TOP TRUCK BRANDS IN INDIA</span>
@@ -385,7 +385,7 @@ export default function Home() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))",
               gap: "1.5rem",
             }}
           >
@@ -454,7 +454,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "1.5rem" }}>
             {SMART_FEATURES.map((feat, idx) => (
               <div key={feat.id} className="bento-card" style={{ padding: "1.8rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
@@ -503,7 +503,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.2rem", marginBottom: "3rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))", gap: "1.2rem", marginBottom: "3rem" }}>
             {VIKING_BENEFITS.map((ben, idx) => (
               <div key={idx} className="part-card" style={{ padding: "1.5rem" }}>
                 <span className="tag tag--safety" style={{ alignSelf: "flex-start", marginBottom: "0.8rem" }}>
@@ -516,7 +516,7 @@ export default function Home() {
           </div>
 
           {/* Worldwide Shipping & Assortment Large Bento Cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(360px, 100%), 1fr))", gap: "2rem" }}>
             {LOGISTICS_SERVICES.map((serv) => (
               <div key={serv.id} className="bento-card bento-card--dark" style={{ padding: "2.5rem" }}>
                 <span className="tag tag--filled" style={{ alignSelf: "flex-start", marginBottom: "1rem", background: "var(--safety)", borderColor: "var(--safety)" }}>
@@ -581,7 +581,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "2rem" }}>
             {TESTIMONIALS.map((t, idx) => (
               <div key={idx} className="bento-card" style={{ minHeight: "260px", padding: "2rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
@@ -625,7 +625,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "1.5rem" }}>
             {BRANDS.map((brand) => (
               <div key={brand.id} className="part-card" style={{ background: "var(--base)" }}>
                 <div>
@@ -702,7 +702,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "2rem" }}>
             {LOCATIONS.map((loc) => (
               <div key={loc.id} className="part-card" style={{ background: "var(--base)", padding: "2rem" }}>
                 <div>

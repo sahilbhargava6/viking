@@ -349,7 +349,7 @@ function PartsCatalogContent() {
                 </div>
               ) : viewMode === "grid" ? (
                 /* GRID VIEW */
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "1.8rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))", gap: "1.8rem" }}>
                   {filteredParts.map((part) => (
                     <div key={part.id} className="bento-card" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                       <div>

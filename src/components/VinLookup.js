@@ -213,7 +213,7 @@ export default function VinLookup() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
               gap: "1rem",
               background: "#fff",
               padding: "1rem",
@@ -250,7 +250,7 @@ export default function VinLookup() {
               </Link>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(240px, 100%), 1fr))", gap: "1rem" }}>
               {matchingParts.slice(0, 4).map((p) => (
                 <div
                   key={p.id}

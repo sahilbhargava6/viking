@@ -81,7 +81,7 @@ export default function DownloadCatalogues() {
           </div>
         )}
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.8rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "1.8rem" }}>
           {catalogues.map((cat) => (
             <div
               key={cat.id}

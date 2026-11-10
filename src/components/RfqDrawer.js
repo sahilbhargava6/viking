@@ -263,7 +263,7 @@ export default function RfqDrawer() {
                     onChange={(e) => setClientName(e.target.value)}
                   />
 
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
+                  <div className="form-row-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
                     <input
                       type="text"
                       placeholder="Company / Transporter"

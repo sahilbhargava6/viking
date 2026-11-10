@@ -34,7 +34,7 @@ export default function FacilitiesPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "2.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(360px, 100%), 1fr))", gap: "2.5rem" }}>
             {LOCATIONS.map((loc, idx) => (
               <div key={loc.id} className="bento-card" style={{ padding: "2.5rem" }}>
                 <div>
@@ -85,7 +85,7 @@ export default function FacilitiesPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "1.5rem" }}>
             <div className="part-card">
               <span className="tag tag--filled" style={{ alignSelf: "flex-start", marginBottom: "1rem" }}>QC-01</span>
               <h4 style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>Ultrasonic Crack Detection</h4>

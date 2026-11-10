@@ -107,7 +107,7 @@ export default function ExportsPage() {
           </p>
 
           {/* User Requested Image Showcase 1 & 2 in Industrial Comparison Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))", gap: "2rem", marginBottom: "3rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(450px, 100%), 1fr))", gap: "2rem", marginBottom: "3rem" }}>
             {/* Left Image: Indian Truck Brands Collage */}
             <div
               style={{
@@ -203,7 +203,7 @@ export default function ExportsPage() {
             Viking Tradelinks supplies complete OEM replacement components for the entire FUSO Canter, Fighter, Super Great, and FJ/FZ platforms.
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.8rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "1.8rem" }}>
             {fusoExportDetails.map((fuso, idx) => (
               <div
                 key={idx}
@@ -254,7 +254,7 @@ export default function ExportsPage() {
             Indian Truck &amp; Bus Brand Export Portfolios<span className="accent">.</span>
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(360px, 100%), 1fr))", gap: "2rem" }}>
             {indianBrands.map((b, idx) => (
               <div
                 key={idx}
@@ -328,7 +328,7 @@ export default function ExportsPage() {
             Worldwide Export Capabilities &amp; Standards<span className="accent">.</span>
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1.5rem" }}>
             <div style={{ background: "#111", border: "2px solid rgba(255,255,255,0.15)", padding: "1.5rem", color: "#FFF" }}>
               <div style={{ fontSize: "1.8rem", color: "var(--safety)", marginBottom: "0.5rem" }}>✈️</div>
               <h4 style={{ fontSize: "1.1rem", marginBottom: "0.4rem" }}>7-Day Express Air Freight</h4>
